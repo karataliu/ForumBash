@@ -1,0 +1,106 @@
+﻿@model IEnumerable<ODataOpenIssuesDashboard.Models.SOIssue>
+@using PagedList.Mvc;
+@using PagedList;
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <p class="lead">This dashboard currently shows the open issues of OData on StackOverflow</p>
+</div>
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <div class="row">
+
+            <div class="col-md-8">
+
+                @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-inline" }))
+                {
+                    <div class="checkbox">
+                        @Html.CheckBox("All", new { @class = "indexCheckAll" })
+                        All
+                    </div>
+                    <div class="checkbox">
+                        @Html.CheckBox("Active", new { @class = "indexActive" })
+                        Active
+                    </div>
+                    <div class="checkbox">
+                        @Html.CheckBox("NotResolved", new { @class = "indexCheckNoSol" })
+                        Not Resolved/Closed
+                    </div>
+                    <div class="checkbox">
+                        @Html.CheckBox("Assigned", new { @class = "indexCheckAssign" })
+                        Assigned Only
+                    </div>
+
+
+                    <br /> <br />
+                    <button type="submit" class="btn btn-small">Apply</button>
+                 }
+            </div>
+
+            <div class="col-md-4">
+                @using (Html.BeginForm())
+                {
+                    <p>
+                        Find by owner: @Html.TextBox("searchString", "", new { @class = "form-inline" })
+                        <input type="submit" value="Search" class="btn-default"/>
+                    </p>
+                }
+            </div>
+
+        </div>
+
+            <table class="table table-striped table-condensed">
+                <thead>
+                    <tr>
+                        <th align="center" width="300px">Title</th>
+                        <th align="center">Creation Date</th>
+                        <th align="center">Responses</th>
+                        <th align="center" width="120px">Owner</th>
+                        <th align="center">Status</th>
+                        <th align="center">Action</th>
+                    </tr>
+                </thead>
+
+                @foreach (var issue in Model)
+                {
+                    using (Html.BeginForm("IndexForm", "Home", FormMethod.Post))
+                    {
+                        <tr>
+                            <td width="600px"><a href="@issue.URL">@issue.Title</a></td>
+                            <td class="creationDate">@issue.CreationDate</td>
+                            <td align="center">@(@issue.CommentNumber + @issue.AnswerNumber)</td>
+                            <td>
+                                <input type="text" id="ownerText" width="120" class="form-control" name="owner" value="@issue.Owner" placeholder="N/A" />
+                            </td>
+                            <td>
+                                @Html.DropDownList("operation", (List<SelectListItem>)ViewBag.StatusChoice, issue.Status.ToString(), new { @class = "form-control" })
+                            </td>
+                            <td>
+                                <input type="submit" class="btn btn-info" value="Save" />
+                            </td>
+                            @Html.Hidden("id", issue.Id)
+                        </tr>
+                    }
+                }
+            </table>
+
+
+            <br />
+        </div>
+
+
+</div>
+
+<div>
+
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { All = ViewBag.All, Assigned = ViewBag.Assigned, NotResolved = ViewBag.NotResolved, Active = ViewBag.Active, page }))
+
+</div>
+

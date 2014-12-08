@@ -1,0 +1,2075 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Stacky</name>
+    </assembly>
+    <members>
+        <member name="M:Stacky.StackyClientAsync.GetPrivileges(System.Action{System.Collections.Generic.IEnumerable{Stacky.Privilege}},System.Action{Stacky.ApiException})">
+            <summary>
+            Get a list of all the Privileges
+            </summary>
+            <param name="onSuccess"></param>
+            <param name="onError"></param>
+        </member>
+        <member name="M:Stacky.StackyClientAsync.GetAnswers(System.Action{Stacky.IPagedList{Stacky.Answer}},System.Action{Stacky.ApiException},Stacky.AnswerSort,Stacky.SortDirection,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Returns all the answers in the system
+            </summary>
+            <param name="onSuccess">The callback on successful execution</param>
+            <param name="onError">The callback if an error occurs</param>
+            <param name="sortBy">How a collection should be sorted.</param>
+            <param name="sortDirection"></param>
+            <param name="page">The pagination offset for the current collection. Affected by the specified pagesize.</param>
+            <param name="pageSize">The number of collection results to display during pagination. Should be between 0 and 100 inclusive.</param>
+            <param name="includeBody">When "true", a post's body will be included in the response.</param>
+            <param name="includeComments">When "true", any comments on a post will be included in the response.</param>
+            <param name="includeAnswers"> When "true", the answers to a question will be returned</param>
+            <param name="min">Minimum of the range to include in the response according to the current sort.</param>
+            <param name="max">Maximum of the range to include in the response according to the current sort.</param>
+            <param name="fromDate">Unix timestamp of the minimum creation date on a returned item.</param>
+            <param name="toDate">Unix timestamp of the maximum creation date on a returned item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stacky.StackyClientAsync.GetComments(System.Action{Stacky.IPagedList{Stacky.Comment}},System.Action{Stacky.ApiException},Stacky.CommentSort,Stacky.SortDirection,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Gets all the comments in the site
+            </summary>
+            <param name="onSuccess"></param>
+            <param name="onError"></param>
+            <param name="sortBy">How the current sort should be ordered.</param>
+            <param name="sortDirection"></param>
+            <param name="page">The pagination offset for the current collection. Affected by the specified pagesize.</param>
+            <param name="pageSize">The number of collection results to display during pagination. Should be between 0 and 100 inclusive.</param>
+            <param name="fromDate"> Unix timestamp of the minimum creation date on a returned item.</param>
+            <param name="toDate">Unix timestamp of the maximum creation date on a returned item.</param>
+            <param name="min">Minimum of the range to include in the response according to the current sort.</param>
+            <param name="max">Maximum of the range to include in the response according to the current sort.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stacky.StackyClientAsync.GetUnacceptedQuestions(System.Action{Stacky.IPagedList{Stacky.Question}},System.Action{Stacky.ApiException},System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},Stacky.QuestionSort,Stacky.SortDirection,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Gets the questions asked by the users in userId which have at least one answer, but no accepted answer.
+            Questions returned by this method have answers, but the owner has not opted to accept any of them.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClientAsync.GetUnacceptedQuestions(System.Action{Stacky.IPagedList{Stacky.Question}},System.Action{Stacky.ApiException},System.Collections.Generic.IEnumerable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},Stacky.QuestionSort,Stacky.SortDirection,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Gets the questions asked by the users in userIds which have at least one answer, but no accepted answer.
+            Questions returned by this method have answers, but the owner has not opted to accept any of them.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClientAsync.GetUnansweredQuestions(System.Action{Stacky.IPagedList{Stacky.Question}},System.Action{Stacky.ApiException},System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},Stacky.QuestionSort,Stacky.SortDirection,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Gets the questions asked by the users in id which the site consideres unanswered, while still having at least one answer posted.
+            These rules are subject to change, but currently any question without at least one upvoted or accepted answer is considered unanswered.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClientAsync.GetUnansweredQuestions(System.Action{Stacky.IPagedList{Stacky.Question}},System.Action{Stacky.ApiException},System.Collections.Generic.IEnumerable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},Stacky.QuestionSort,Stacky.SortDirection,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Gets the questions asked by the users in id which the site consideres unanswered, while still having at least one answer posted.
+            These rules are subject to change, but currently any question without at least one upvoted or accepted answer is considered unanswered.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClientAsync.GetTopTaggedAnswers(System.Action{System.Collections.Generic.IEnumerable{Stacky.Answer}},System.Action{Stacky.ApiException},System.Int32,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Returns the top 30 answer a user has posted in resposne to questions with the given tags.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClientAsync.GetTopTaggedAnswers(System.Action{System.Collections.Generic.IEnumerable{Stacky.Answer}},System.Action{Stacky.ApiException},System.Int32,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Returns the top 30 answer a user has posted in resposne to questions with the given tags.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClientAsync.GetTopTaggedQuestions(System.Action{System.Collections.Generic.IEnumerable{Stacky.Question}},System.Action{Stacky.ApiException},System.Int32,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Returns the top 30 answer a user has posted in resposne to questions with the given tags.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClientAsync.GetTopTaggedQuestions(System.Action{System.Collections.Generic.IEnumerable{Stacky.Question}},System.Action{Stacky.ApiException},System.Int32,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Returns the top 30 answer a user has posted in resposne to questions with the given tags.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClientAsync.GetTopAnswerTags(System.Action{System.Collections.Generic.IEnumerable{Stacky.TopTag}},System.Action{Stacky.ApiException},System.Int32)">
+            <summary>
+            Returns a single user's top 30 tags by answer score.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClientAsync.GetTopQuestionTags(System.Action{System.Collections.Generic.IEnumerable{Stacky.TopTag}},System.Action{Stacky.ApiException},System.Int32)">
+            <summary>
+            Returns a single user's top 30 tags by question score.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClientAsync.GetTopAskers(System.Action{System.Collections.Generic.IEnumerable{Stacky.TopUser}},System.Action{Stacky.ApiException},System.String,Stacky.TopUserPeriod)">
+            <summary>
+            Returns the top 30 question askers active in a single tag, of either all-time or the last 30 days.
+            </summary>
+            <param name="onSuccess"></param>
+            <param name="onError"></param>
+            <param name="tag">The name of the tag to query</param>
+            <param name="period">The period of time to query</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stacky.StackyClientAsync.GetTopAskers(System.Action{System.Collections.Generic.IEnumerable{Stacky.TopUser}},System.Action{Stacky.ApiException},System.Collections.Generic.IEnumerable{System.String},Stacky.TopUserPeriod)">
+            <summary>
+            Returns the top 30 question askers active in a single tag, of either all-time or the last 30 days.
+            </summary>
+            <param name="onSuccess"></param>
+            <param name="onError"></param>
+            <param name="tags">The list of tags to query</param>
+            <param name="period">The time period to query</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stacky.StackyClientAsync.GetTopAnswerers(System.Action{System.Collections.Generic.IEnumerable{Stacky.TopUser}},System.Action{Stacky.ApiException},System.String,Stacky.TopUserPeriod)">
+            <summary>
+            Returns the top 30 question askers active in a single tag, of either all-time or the last 30 days.
+            </summary>
+            <param name="onSuccess"></param>
+            <param name="onError"></param>
+            <param name="tag">The name of the tag to query</param>
+            <param name="period">The period of time to query</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stacky.StackyClientAsync.GetTopAnswerers(System.Action{System.Collections.Generic.IEnumerable{Stacky.TopUser}},System.Action{Stacky.ApiException},System.Collections.Generic.IEnumerable{System.String},Stacky.TopUserPeriod)">
+            <summary>
+            Returns the top 30 question askers active in a single tag, of either all-time or the last 30 days.
+            </summary>
+            <param name="onSuccess"></param>
+            <param name="onError"></param>
+            <param name="tags">The list of tags to query</param>
+            <param name="period">The time period to query</param>
+            <returns></returns>
+        </member>
+        <member name="T:Stacky.BadgeClass">
+            <summary>
+            Specifies the badge type.
+            </summary>
+        </member>
+        <member name="F:Stacky.BadgeClass.Gold">
+            <summary>
+            Gold badge.
+            </summary>
+        </member>
+        <member name="F:Stacky.BadgeClass.Silver">
+            <summary>
+            Silver badge.
+            </summary>
+        </member>
+        <member name="F:Stacky.BadgeClass.Bronze">
+            <summary>
+            Bronze badge.
+            </summary>
+        </member>
+        <member name="T:Stacky.User">
+            <summary>
+            Represents a user.
+            </summary>
+        </member>
+        <member name="M:Stacky.Entity.NotifyOfPropertyChange(System.String)">
+            <summary>
+            Notifies subscribers of the property change.
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="M:Stacky.Entity.NotifyOfPropertyChange``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Notifies subscribers of the property change.
+            </summary>
+            <typeparam name="TProperty">The type of the property.</typeparam>
+            <param name="property">The property expression.</param>
+        </member>
+        <member name="M:Stacky.Entity.RaisePropertyChangedEventImmediately(System.String)">
+            <summary>
+            Raises the property changed event immediately.
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="P:Stacky.User.Id">
+            <summary>
+            Gets or sets the user id.
+            </summary>
+            <value>The user id.</value>
+        </member>
+        <member name="P:Stacky.User.Type">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.UserType"/>.
+            </summary>
+            <value>The <see cref="T:Stacky.UserType"/>.</value>
+        </member>
+        <member name="P:Stacky.User.DisplayName">
+            <summary>
+            Gets or sets the display name.
+            </summary>
+            <value>The display name.</value>
+        </member>
+        <member name="P:Stacky.User.CreationDate">
+            <summary>
+            Gets or sets the creation date.
+            </summary>
+            <value>The creation date.</value>
+        </member>
+        <member name="P:Stacky.User.Reputation">
+            <summary>
+            Gets or sets the reputation.
+            </summary>
+            <value>The reputation.</value>
+        </member>
+        <member name="P:Stacky.User.EmailHash">
+            <summary>
+            Gets or sets the email hash.
+            </summary>
+            <value>The email hash.</value>
+        </member>
+        <member name="P:Stacky.User.GravatarUrl">
+            <summary>
+            Gets the gravatar URL.
+            </summary>
+            <value>The gravatar URL.</value>
+        </member>
+        <member name="P:Stacky.User.Age">
+            <summary>
+            Gets or sets the age.
+            </summary>
+            <value>The age.</value>
+        </member>
+        <member name="P:Stacky.User.LastAccessDate">
+            <summary>
+            Gets or sets the last access date.
+            </summary>
+            <value>The last access date.</value>
+        </member>
+        <member name="P:Stacky.User.Website">
+            <summary>
+            Gets or sets the website.
+            </summary>
+            <value>The website.</value>
+        </member>
+        <member name="P:Stacky.User.Location">
+            <summary>
+            Gets or sets the location.
+            </summary>
+            <value>The location.</value>
+        </member>
+        <member name="P:Stacky.User.AboutMe">
+            <summary>
+            Gets or sets the about me.
+            </summary>
+            <value>The about me.</value>
+        </member>
+        <member name="P:Stacky.User.QuestionCount">
+            <summary>
+            Gets or sets the question count.
+            </summary>
+            <value>The question count.</value>
+        </member>
+        <member name="P:Stacky.User.AnswerCount">
+            <summary>
+            Gets or sets the answer count.
+            </summary>
+            <value>The answer count.</value>
+        </member>
+        <member name="P:Stacky.User.ViewCount">
+            <summary>
+            Gets or sets the view count.
+            </summary>
+            <value>The view count.</value>
+        </member>
+        <member name="P:Stacky.User.UpVotes">
+            <summary>
+            Gets or sets up votes.
+            </summary>
+            <value>Up votes.</value>
+        </member>
+        <member name="P:Stacky.User.DownVotes">
+            <summary>
+            Gets or sets down votes.
+            </summary>
+            <value>Down votes.</value>
+        </member>
+        <member name="P:Stacky.User.AcceptRate">
+            <summary>
+            Gets or sets the accept rate.
+            </summary>
+            <value>The accept rate.</value>
+        </member>
+        <member name="P:Stacky.User.BadgeCounts">
+            <summary>
+            Gets or sets the <see cref="P:Stacky.User.BadgeCounts"/>.
+            </summary>
+            <value>The <see cref="P:Stacky.User.BadgeCounts"/>.</value>
+        </member>
+        <member name="P:Stacky.User.AssociationId">
+            <summary>
+            Gets or sets a global <see cref="T:System.Guid"/> which identifies
+            this user across stack app sites.
+            </summary>
+        </member>
+        <member name="P:Stacky.User.QuestionsUrl">
+            <summary>
+            Gets or sets the questions URL.
+            </summary>
+            <value>The questions URL.</value>
+        </member>
+        <member name="P:Stacky.User.AnswersUrl">
+            <summary>
+            Gets or sets the answers URL.
+            </summary>
+            <value>The answers URL.</value>
+        </member>
+        <member name="P:Stacky.User.FavoritesUrl">
+            <summary>
+            Gets or sets the favorites URL.
+            </summary>
+            <value>The favorites URL.</value>
+        </member>
+        <member name="P:Stacky.User.TagsUrl">
+            <summary>
+            Gets or sets the tags URL.
+            </summary>
+            <value>The tags URL.</value>
+        </member>
+        <member name="P:Stacky.User.BadgesUrl">
+            <summary>
+            Gets or sets the badges URL.
+            </summary>
+            <value>The badges URL.</value>
+        </member>
+        <member name="P:Stacky.User.TimelineUrl">
+            <summary>
+            Gets or sets the timeline URL.
+            </summary>
+            <value>The timeline URL.</value>
+        </member>
+        <member name="P:Stacky.User.MentionedUrl">
+            <summary>
+            Gets or sets the mentioned URL.
+            </summary>
+            <value>The mentioned URL.</value>
+        </member>
+        <member name="P:Stacky.User.CommentsUrl">
+            <summary>
+            Gets or sets the comments URL.
+            </summary>
+            <value>The comments URL.</value>
+        </member>
+        <member name="P:Stacky.User.ReputationUrl">
+            <summary>
+            Gets or sets the reputation URL.
+            </summary>
+            <value>The reputation URL.</value>
+        </member>
+        <member name="T:Stacky.UserType">
+            <summary>
+            Specifies the user type.
+            </summary>
+        </member>
+        <member name="F:Stacky.UserType.Anonymous">
+            <summary>
+            Anonymous user.
+            </summary>
+        </member>
+        <member name="F:Stacky.UserType.Unregistered">
+            <summary>
+            Unregistered user.
+            </summary>
+        </member>
+        <member name="F:Stacky.UserType.Registered">
+            <summary>
+            Registered user.
+            </summary>
+        </member>
+        <member name="F:Stacky.UserType.Moderator">
+            <summary>
+            Moderator user.
+            </summary>
+        </member>
+        <member name="T:Stacky.Comment">
+            <summary>
+            Represents a comment.
+            </summary>
+        </member>
+        <member name="P:Stacky.Comment.Id">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.Comment"/> id.
+            </summary>
+            <value>The <see cref="T:Stacky.Comment"/> id.</value>
+        </member>
+        <member name="P:Stacky.Comment.Body">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.Comment"/> body.
+            </summary>
+            <value>The <see cref="T:Stacky.Comment"/> body.</value>
+        </member>
+        <member name="P:Stacky.Comment.CreationDate">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.Comment"/> creation date.
+            </summary>
+            <value>The <see cref="T:Stacky.Comment"/> creation date.</value>
+        </member>
+        <member name="P:Stacky.Comment.PostType">
+            <summary>
+            Gets or sets the <see cref="P:Stacky.Comment.PostType">post type</see>.
+            </summary>
+            <value>The type of the post.</value>
+        </member>
+        <member name="P:Stacky.Comment.PostId">
+            <summary>
+            Gets or sets the Id of the post this comment is on
+            </summary>
+        </member>
+        <member name="P:Stacky.Comment.Score">
+            <summary>
+            Gets or sets the score.
+            </summary>
+            <value>The score.</value>
+        </member>
+        <member name="P:Stacky.Comment.EditCount">
+            <summary>
+            Gets or sets the edit count.
+            </summary>
+            <value>The edit count.</value>
+        </member>
+        <member name="P:Stacky.Comment.Owner">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.User"/> associated with this <see cref="T:Stacky.Comment"/>.
+            </summary>
+        </member>
+        <member name="P:Stacky.Comment.ReplyTo">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.User"/> which this <see cref="T:Stacky.Comment"/> was in reply to.
+            </summary>
+        </member>
+        <member name="T:Stacky.Execute">
+            <summary>
+            Enables easy marshalling of code to the UI thread.
+            </summary>
+        </member>
+        <member name="M:Stacky.Execute.InitializeWithDispatcher">
+            <summary>
+            Initializes the framework using the current dispatcher.
+            </summary>
+        </member>
+        <member name="M:Stacky.Execute.OnUIThread(System.Action)">
+            <summary>
+            Executes the action on the UI thread.
+            </summary>
+            <param name="action">The action to execute.</param>
+        </member>
+        <member name="T:Stacky.ErrorCode">
+            <summary>
+            Specifies response error codes.
+            </summary>
+        </member>
+        <member name="F:Stacky.ErrorCode.NotFound">
+            <summary>
+            Not found.
+            </summary>
+        </member>
+        <member name="F:Stacky.ErrorCode.InternalServerError">
+            <summary>
+            Internal server error.
+            </summary>
+        </member>
+        <member name="F:Stacky.ErrorCode.InvalidApplicationPublicKey">
+            <summary>
+            Invalid application public key.
+            </summary>
+        </member>
+        <member name="F:Stacky.ErrorCode.InvalidPageSize">
+            <summary>
+            Invalid page size.
+            </summary>
+        </member>
+        <member name="F:Stacky.ErrorCode.InvalidSort">
+            <summary>
+            Invalid sort type.
+            </summary>
+        </member>
+        <member name="F:Stacky.ErrorCode.InvalidOrder">
+            <summary>
+            Invalid ordering.
+            </summary>
+        </member>
+        <member name="F:Stacky.ErrorCode.RequestLimitExceeded">
+            <summary>
+            Request limit exceeded.
+            </summary>
+        </member>
+        <member name="F:Stacky.ErrorCode.InvalidVectorFormat">
+            <summary>
+            Invalid vector format.
+            </summary>
+        </member>
+        <member name="F:Stacky.ErrorCode.TooManyIds">
+            <summary>
+            Too many ids.
+            </summary>
+        </member>
+        <member name="T:Stacky.BadgeCounts">
+            <summary>
+            Represents a <see cref="T:Stacky.User">User's</see> badge count. 
+            </summary>
+        </member>
+        <member name="P:Stacky.BadgeCounts.Gold">
+            <summary>
+            Gets or sets the gold badge count.
+            </summary>
+            <value>The gold badge count.</value>
+        </member>
+        <member name="P:Stacky.BadgeCounts.Silver">
+            <summary>
+            Gets or sets the silver badge count.
+            </summary>
+            <value>The silver badge count.</value>
+        </member>
+        <member name="P:Stacky.BadgeCounts.Bronze">
+            <summary>
+            Gets or sets the bronze.
+            </summary>
+            <value>The bronze badge count.</value>
+        </member>
+        <member name="T:Stacky.UserSort">
+            <summary>
+            Specifies user sort order.
+            </summary>
+        </member>
+        <member name="F:Stacky.UserSort.Reputation">
+            <summary>
+            Reputaion.
+            </summary>
+        </member>
+        <member name="F:Stacky.UserSort.Creation">
+            <summary>
+            Creation date.
+            </summary>
+        </member>
+        <member name="F:Stacky.UserSort.Name">
+            <summary>
+            Name.
+            </summary>
+        </member>
+        <member name="T:Stacky.TagSort">
+            <summary>
+            Specifies tag sort order.
+            </summary>
+        </member>
+        <member name="F:Stacky.TagSort.Popular">
+            <summary>
+            Popular.
+            </summary>
+        </member>
+        <member name="F:Stacky.TagSort.Name">
+            <summary>
+            Name.
+            </summary>
+        </member>
+        <member name="T:Stacky.SortDirection">
+            <summary>
+            Specifies the sort direction.
+            </summary>
+        </member>
+        <member name="F:Stacky.SortDirection.Ascending">
+            <summary>
+            Ascending.
+            </summary>
+        </member>
+        <member name="F:Stacky.SortDirection.Descending">
+            <summary>
+            Descending.
+            </summary>
+        </member>
+        <member name="T:Stacky.CommentSort">
+            <summary>
+            Specifies comment sort order.
+            </summary>
+        </member>
+        <member name="F:Stacky.CommentSort.Creation">
+            <summary>
+            Creation date.
+            </summary>
+        </member>
+        <member name="F:Stacky.CommentSort.Votes">
+            <summary>
+            Vote count.
+            </summary>
+        </member>
+        <member name="T:Stacky.SiteStats">
+            <summary>
+            Represents site statistics.
+            </summary>
+        </member>
+        <member name="P:Stacky.SiteStats.TotalQuestions">
+            <summary>
+            Gets or sets the total questions.
+            </summary>
+            <value>The total questions.</value>
+        </member>
+        <member name="P:Stacky.SiteStats.TotalUnanswered">
+            <summary>
+            Gets or sets the total unanswered questions.
+            </summary>
+            <value>The total unanswered questions.</value>
+        </member>
+        <member name="P:Stacky.SiteStats.TotalAccepted">
+            <summary>
+            Gets or sets the count of questions with accept answers, or equivalently count of answers accepted.
+            </summary>
+        </member>
+        <member name="P:Stacky.SiteStats.TotalAnswers">
+            <summary>
+            Gets or sets the total answers.
+            </summary>
+            <value>The total answers.</value>
+        </member>
+        <member name="P:Stacky.SiteStats.TotalComments">
+            <summary>
+            Gets or sets the total comments.
+            </summary>
+            <value>The total comments.</value>
+        </member>
+        <member name="P:Stacky.SiteStats.TotalVotes">
+            <summary>
+            Gets or sets the total votes.
+            </summary>
+            <value>The total votes.</value>
+        </member>
+        <member name="P:Stacky.SiteStats.TotalBadges">
+            <summary>
+            Gets or sets the total badges.
+            </summary>
+            <value>The total badges.</value>
+        </member>
+        <member name="P:Stacky.SiteStats.TotalUsers">
+            <summary>
+            Gets or sets the total users.
+            </summary>
+            <value>The total users.</value>
+        </member>
+        <member name="P:Stacky.SiteStats.QuestionsPerMinute">
+            <summary>
+            Gets or sets the questions per minute.
+            </summary>
+            <value>The questions per minute.</value>
+        </member>
+        <member name="P:Stacky.SiteStats.AnswersPerMinute">
+            <summary>
+            Gets or sets the answers per minute.
+            </summary>
+            <value>The answers per minute.</value>
+        </member>
+        <member name="P:Stacky.SiteStats.BadgesPerMinute">
+            <summary>
+            Gets or sets the badges per minute.
+            </summary>
+            <value>The badges per minute.</value>
+        </member>
+        <member name="P:Stacky.SiteStats.ViewsPerDay">
+            <summary>
+            Gets or sets the average views per day on all questions.
+            </summary>
+        </member>
+        <member name="P:Stacky.SiteStats.ApiVersion">
+            <summary>
+            Gets or sets the <see cref="P:Stacky.SiteStats.ApiVersion">API version</see>.
+            </summary>
+            <value>The <see cref="P:Stacky.SiteStats.ApiVersion">API version</see>.</value>
+        </member>
+        <member name="P:Stacky.SiteStats.Site">
+            <summary>
+            Gets or sets the display name.
+            </summary>
+            <value>The display name.</value>
+        </member>
+        <member name="T:Stacky.StackyClient">
+            <summary>
+            
+            </summary>
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClient.GetPrivileges">
+            <summary>
+            Get a list of all the Privileges
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Stacky.StackyClient.GetUsersAnswers(System.Int32,Stacky.QuestionsByUserSort,Stacky.SortDirection,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Gets the users answers.
+            </summary>
+            <param name="userId">The user id.</param>
+            <param name="sortBy">The sort by.</param>
+            <param name="sortDirection">The sort direction.</param>
+            <param name="page">The page.</param>
+            <param name="pageSize">Size of the page.</param>
+            <param name="includeBody">if set to <c>true</c> [include body].</param>
+            <param name="includeComments">if set to <c>true</c> [include comments].</param>
+            <param name="min">The min.</param>
+            <param name="max">The max.</param>
+            <param name="fromDate">From date.</param>
+            <param name="toDate">To date.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stacky.StackyClient.GetUsersAnswers(System.Collections.Generic.IEnumerable{System.Int32},Stacky.QuestionsByUserSort,Stacky.SortDirection,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Gets the users answers.
+            </summary>
+            <param name="userIds">The user ids.</param>
+            <param name="sortBy">The sort by.</param>
+            <param name="sortDirection">The sort direction.</param>
+            <param name="page">The page.</param>
+            <param name="pageSize">Size of the page.</param>
+            <param name="includeBody">if set to <c>true</c> [include body].</param>
+            <param name="includeComments">if set to <c>true</c> [include comments].</param>
+            <param name="min">The min.</param>
+            <param name="max">The max.</param>
+            <param name="fromDate">From date.</param>
+            <param name="toDate">To date.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stacky.StackyClient.GetQuestionAnswers(System.Collections.Generic.IEnumerable{System.Int32},Stacky.QuestionsByUserSort,Stacky.SortDirection,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Gets the question answers.
+            </summary>
+            <param name="questionIds">The question ids.</param>
+            <param name="sortBy">The sort by.</param>
+            <param name="sortDirection">The sort direction.</param>
+            <param name="page">The page.</param>
+            <param name="pageSize">Size of the page.</param>
+            <param name="includeBody">if set to <c>true</c> [include body].</param>
+            <param name="includeComments">if set to <c>true</c> [include comments].</param>
+            <param name="min">The min.</param>
+            <param name="max">The max.</param>
+            <param name="fromDate">From date.</param>
+            <param name="toDate">To date.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stacky.StackyClient.GetQuestionAnswers(System.Int32,Stacky.QuestionsByUserSort,Stacky.SortDirection,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Gets the question answers.
+            </summary>
+            <param name="questionId">The question id.</param>
+            <param name="sortBy">The sort by.</param>
+            <param name="sortDirection">The sort direction.</param>
+            <param name="page">The page.</param>
+            <param name="pageSize">Size of the page.</param>
+            <param name="includeBody">if set to <c>true</c> [include body].</param>
+            <param name="includeComments">if set to <c>true</c> [include comments].</param>
+            <param name="min">The min.</param>
+            <param name="max">The max.</param>
+            <param name="fromDate">From date.</param>
+            <param name="toDate">To date.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stacky.StackyClient.GetAnswers(Stacky.AnswerSort,Stacky.SortDirection,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Returns all the answers in the system
+            </summary>
+            <param name="sortBy">How a collection should be sorted.</param>
+            <param name="sortDirection"></param>
+            <param name="page">The pagination offset for the current collection. Affected by the specified pagesize.</param>
+            <param name="pageSize">The number of collection results to display during pagination. Should be between 0 and 100 inclusive.</param>
+            <param name="includeBody">When "true", a post's body will be included in the response.</param>
+            <param name="includeComments">When "true", any comments on a post will be included in the response.</param>
+            <param name="includeAnswers"> When "true", the answers to a question will be returned</param>
+            <param name="min">Minimum of the range to include in the response according to the current sort.</param>
+            <param name="max">Maximum of the range to include in the response according to the current sort.</param>
+            <param name="fromDate">Unix timestamp of the minimum creation date on a returned item.</param>
+            <param name="toDate">Unix timestamp of the maximum creation date on a returned item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stacky.StackyClient.GetTopAskers(System.String,Stacky.TopUserPeriod)">
+            <summary>
+            Returns the top 30 question askers active in a single tag, of either all-time or the last 30 days.
+            </summary>
+            <param name="tag">The name of the tag to query</param>
+            <param name="period">The period of time to query</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stacky.StackyClient.GetTopAskers(System.Collections.Generic.IEnumerable{System.String},Stacky.TopUserPeriod)">
+            <summary>
+            Returns the top 30 question askers active in a single tag, of either all-time or the last 30 days.
+            </summary>
+            <param name="tags">The list of tags to query</param>
+            <param name="period">The time period to query</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stacky.StackyClient.GetTopAnswerers(System.String,Stacky.TopUserPeriod)">
+            <summary>
+            Returns the top 30 question answerers active in a single tag, of either all-time or the last 30 days.
+            </summary>
+            <param name="tag">The name of the tag to query</param>
+            <param name="period">The period of time to query</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stacky.StackyClient.GetTopAnswerers(System.Collections.Generic.IEnumerable{System.String},Stacky.TopUserPeriod)">
+            <summary>
+            Returns the top 30 question answerers active in a single tag, of either all-time or the last 30 days.
+            </summary>
+            <param name="tags">The list of tags to query</param>
+            <param name="period">The time period to query</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stacky.StackyClient.GetNoAnswerQuestions(System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},Stacky.QuestionSort,Stacky.SortDirection,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Gets the questions asked by the users in userId which have no answers.
+            Questions returns by this method actually have zero undeleted answers.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClient.GetNoAnswerQuestions(System.Collections.Generic.IEnumerable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},Stacky.QuestionSort,Stacky.SortDirection,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Gets the questions asked by the users in userIds which have no answers.
+            Questions returns by this method actually have zero undeleted answers.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClient.GetUnacceptedQuestions(System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},Stacky.QuestionSort,Stacky.SortDirection,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Gets the questions asked by the users in userId which have at least one answer, but no accepted answer.
+            Questions returned by this method have answers, but the owner has not opted to accept any of them.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClient.GetUnacceptedQuestions(System.Collections.Generic.IEnumerable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},Stacky.QuestionSort,Stacky.SortDirection,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Gets the questions asked by the users in userIds which have at least one answer, but no accepted answer.
+            Questions returned by this method have answers, but the owner has not opted to accept any of them.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClient.GetTopTaggedAnswers(System.Int32,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Returns the top 30 answer a user has posted in resposne to questions with the given tags.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClient.GetTopTaggedAnswers(System.Int32,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Returns the top 30 answer a user has posted in resposne to questions with the given tags.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClient.GetTopTaggedQuestions(System.Int32,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Returns the top 30 questions a user has asked with the given tags.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClient.GetTopTaggedQuestions(System.Int32,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Returns the top 30 questions a user has asked with the given tags.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClient.GetTopAnswerTags(System.Int32)">
+            <summary>
+            Returns a single user's top 30 tags by answer score.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClient.GetTopQuestionTags(System.Int32)">
+            <summary>
+            Returns a single user's top 30 tags by question score.
+            </summary>
+        </member>
+        <member name="M:Stacky.StackyClient.GetComments(Stacky.CommentSort,Stacky.SortDirection,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Gets all the comments in the site
+            </summary>
+            <param name="sortBy">How the current sort should be ordered.</param>
+            <param name="sortDirection"></param>
+            <param name="page">The pagination offset for the current collection. Affected by the specified pagesize.</param>
+            <param name="pageSize">The number of collection results to display during pagination. Should be between 0 and 100 inclusive.</param>
+            <param name="fromDate"> Unix timestamp of the minimum creation date on a returned item.</param>
+            <param name="toDate">Unix timestamp of the maximum creation date on a returned item.</param>
+            <param name="min">Minimum of the range to include in the response according to the current sort.</param>
+            <param name="max">Maximum of the range to include in the response according to the current sort.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Stacky.FavoriteQuestionsSort">
+            <summary>
+            Specifies favorite question sort order.
+            </summary>
+        </member>
+        <member name="F:Stacky.FavoriteQuestionsSort.Activity">
+            <summary>
+            Activity.
+            </summary>
+        </member>
+        <member name="F:Stacky.FavoriteQuestionsSort.Views">
+            <summary>
+            View count.
+            </summary>
+        </member>
+        <member name="F:Stacky.FavoriteQuestionsSort.Creation">
+            <summary>
+            Creation date.
+            </summary>
+        </member>
+        <member name="F:Stacky.FavoriteQuestionsSort.Added">
+            <summary>
+            Added date.
+            </summary>
+        </member>
+        <member name="F:Stacky.FavoriteQuestionsSort.Votes">
+            <summary>
+            Vote count.
+            </summary>
+        </member>
+        <member name="T:Stacky.SortArgsAttribute">
+            <summary>
+            Specifies the sort arguments from JSON. 
+            </summary>
+        </member>
+        <member name="M:Stacky.SortArgsAttribute.#ctor(System.String,System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stacky.SortArgsAttribute"/> class.
+            </summary>
+            <param name="sort">The sort type.</param>
+            <param name="urlArgs">The URL args.</param>
+        </member>
+        <member name="P:Stacky.SortArgsAttribute.UrlArgs">
+            <summary>
+            Gets the URL arguments.
+            </summary>
+            <value>The URL arguments.</value>
+        </member>
+        <member name="P:Stacky.SortArgsAttribute.Sort">
+            <summary>
+            Gets or sets the sort type.
+            </summary>
+            <value>The sort type.</value>
+        </member>
+        <member name="T:Stacky.UrlHelper">
+            <summary>
+            Stack Overflow API url helper methods.
+            </summary>
+        </member>
+        <member name="M:Stacky.UrlHelper.BuildUrl(System.String,System.String,System.String,System.String[],System.Object)">
+            <summary>
+            Builds the Stack Overflow API method <see cref="T:System.Uri"/>.
+            </summary>
+            <param name="method">The method.</param>
+            <param name="version">The API version.</param>
+            <param name="serviceUrl">The service URL.</param>
+            <param name="urlParameters">The URL parameters.</param>
+            <param name="queryStringParameters">The query string parameters.</param>
+            <returns>Stack Overflow method call <see cref="T:System.Uri"/></returns>
+        </member>
+        <member name="M:Stacky.UrlHelper.BuildUrl(System.String,System.String,System.String,System.String[],System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Builds the Stack Overflow API method <see cref="T:System.Uri"/>.
+            </summary>
+            <param name="method">The method.</param>
+            <param name="version">The API version.</param>
+            <param name="serviceUrl">The service URL.</param>
+            <param name="urlParameters">The URL parameters.</param>
+            <param name="queryStringParameters">The query string parameters.</param>
+            <returns>Stack Overflow method call <see cref="T:System.Uri"/></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Stacky.UrlHelper.BuildParameters(System.Collections.Generic.Dictionary{System.String,System.String})" -->
+        <!-- Badly formed XML comment ignored for member "M:Stacky.UrlHelper.BuildParameters(System.Object)" -->
+        <member name="M:Stacky.UrlHelper.ObjectToDictionary(System.Object)">
+            <summary>
+            Returns a property dictionary for the provided object.
+            </summary>
+            <param name="item">The object.</param>
+            <returns>Dictionary of propery names and values.</returns>
+        </member>
+        <member name="M:Stacky.UrlHelper.Vectorize``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Converts a list of items to a delimited string to be used
+            by vectorized (multi-key) requests
+            </summary>
+        </member>
+        <member name="M:Stacky.UrlHelper.ToArray(System.Int32)">
+            <summary>
+            Converts an int to int array.
+            </summary>
+            <param name="item">The int.</param>
+            <returns>The int[].</returns>
+        </member>
+        <member name="M:Stacky.Require.IsTrue(System.Boolean)">
+            <summary>
+                If <paramref name="truth"/> is false, throw an empty <see cref="T:System.InvalidOperationException"/>.
+            </summary>
+            <param name="truth">The 'truth' to evaluate.</param>
+        </member>
+        <member name="M:Stacky.Require.IsTrue(System.Boolean,System.String)">
+            <summary>
+                If <paramref name="truth"/> is false, throw an 
+                <see cref="T:System.InvalidOperationException"/> with the provided <paramref name="message"/>.
+            </summary>
+            <param name="truth">The 'truth' to evaluate.</param>
+            <param name="message">
+                The <see cref="P:System.Exception.Message"/> if 
+                <paramref name="truth"/> is false.
+            </param>
+        </member>
+        <member name="M:Stacky.Require.IsTrue(System.Boolean,System.Exception)">
+            <summary>
+                If <paramref name="truth"/> is false, throws 
+                <paramref name="exception"/>.    
+            </summary>
+            <param name="truth">The 'truth' to evaluate.</param>
+            <param name="exception">
+                The <see cref="T:System.Exception"/> to throw if <paramref name="truth"/> is false.
+            </param>
+        </member>
+        <member name="M:Stacky.Require.NotNullOrEmpty(System.String,System.String)">
+            <summary>
+                Throws an <see cref="T:System.ArgumentNullException"/> if the
+                provided string is null.
+                Throws an <see cref="T:System.ArgumentOutOfRangeException"/> if the
+                provided string is empty.
+            </summary>
+            <param name="stringParameter">The object to test for null and empty.</param>
+            <param name="parameterName">The string for the ArgumentException parameter, if thrown.</param>
+        </member>
+        <member name="M:Stacky.Require.NotNull(System.Object,System.String)">
+            <summary>
+                Throws an <see cref="T:System.ArgumentNullException"/> if the
+                provided object is null.
+            </summary>
+            <param name="obj">The object to test for null.</param>
+            <param name="parameterName">The string for the ArgumentNullException parameter, if thrown.</param>
+        </member>
+        <member name="M:Stacky.Require.Argument(System.Boolean,System.String)">
+            <summary>
+                Throws an <see cref="T:System.ArgumentException"/> if the provided truth is false.
+            </summary>
+            <param name="truth">The value assumed to be true.</param>
+            <param name="parameterName">The string for <see cref="T:System.ArgumentException"/>, if thrown.</param>
+        </member>
+        <member name="M:Stacky.Require.Argument(System.Boolean,System.String,System.String)">
+            <summary>
+                Throws an <see cref="T:System.ArgumentException"/> if the provided truth is false.
+            </summary>
+            <param name="truth">The value assumed to be true.</param>
+            <param name="paramName">The paramName for the <see cref="T:System.ArgumentException"/>, if thrown.</param>
+            <param name="message">The message for <see cref="T:System.ArgumentException"/>, if thrown.</param>
+        </member>
+        <member name="M:Stacky.Require.ArgumentRange(System.Boolean,System.String)">
+            <summary>
+                Throws an <see cref="T:System.ArgumentOutOfRangeException"/> if the provided truth is false.
+            </summary>
+            <param name="truth">The value assumed to be true.</param>
+            <param name="parameterName">The string for <see cref="T:System.ArgumentOutOfRangeException"/>, if thrown.</param>
+        </member>
+        <member name="M:Stacky.Require.ArgumentRange(System.Boolean,System.String,System.String)">
+            <summary>
+                Throws an <see cref="T:System.ArgumentOutOfRangeException"/> if the provided truth is false.
+            </summary>
+            <param name="truth">The value assumed to be true.</param>
+            <param name="paramName">The paramName for the <see cref="T:System.ArgumentOutOfRangeException"/>, if thrown.</param>
+            <param name="message">The message for <see cref="T:System.ArgumentOutOfRangeException"/>, if thrown.</param>
+        </member>
+        <member name="T:Stacky.UserInfo">
+            <summary>
+            Represents user information.
+            </summary>
+        </member>
+        <member name="P:Stacky.UserInfo.UserId">
+            <summary>
+            Gets or sets the user id.
+            </summary>
+            <value>The user id.</value>
+        </member>
+        <member name="P:Stacky.UserInfo.Type">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.UserType"/>.
+            </summary>
+            <value>The <see cref="T:Stacky.UserType"/>.</value>
+        </member>
+        <member name="P:Stacky.UserInfo.DisplayName">
+            <summary>
+            Gets or sets the display name.
+            </summary>
+            <value>The display name.</value>
+        </member>
+        <member name="P:Stacky.UserInfo.Reputation">
+            <summary>
+            Gets or sets the reputation.
+            </summary>
+            <value>The reputation.</value>
+        </member>
+        <member name="P:Stacky.UserInfo.EmailHash">
+            <summary>
+            Gets or sets the email hash.
+            </summary>
+            <value>The email hash.</value>
+        </member>
+        <member name="P:Stacky.UserInfo.GravatarUrl">
+            <summary>
+            Gets the gravatar URL.
+            </summary>
+            <value>The gravatar URL.</value>
+        </member>
+        <member name="P:Stacky.TagSynonym.FromTag">
+            <summary>
+            Gets or sets the from tag.
+            </summary>
+        </member>
+        <member name="P:Stacky.TagSynonym.ToTag">
+            <summary>
+            Gets or sets the to tag.
+            </summary>
+        </member>
+        <member name="P:Stacky.TagSynonym.AppliedCount">
+            <summary>
+            Gets or sets the applied count
+            </summary>
+        </member>
+        <member name="P:Stacky.TagSynonym.LastAppliedDate">
+            <summary>
+            Gets or sets the last applied date
+            </summary>
+        </member>
+        <member name="P:Stacky.TagSynonym.CreationDate">
+            <summary>
+            Gets or sets the creation date
+            </summary>
+        </member>
+        <member name="T:Stacky.MigrationInfo">
+            <summary>
+            Represents information regarding a question which
+            has been migrated from one site to another
+            </summary>
+        </member>
+        <member name="P:Stacky.MigrationInfo.NewQuestionId">
+            <summary>
+            Gets or sets the destination questionId
+            </summary>
+        </member>
+        <member name="P:Stacky.MigrationInfo.ToSite">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.Site"/> the <see cref="T:Stacky.Question"/> has been migrated to
+            </summary>
+        </member>
+        <member name="P:Stacky.MigrationInfo.OnDate">
+            <summary>
+            Gets or sets the date the <see cref="T:Stacky.Question"/> was migrated
+            </summary>
+        </member>
+        <member name="T:Stacky.Answer">
+            <summary>
+            Represents an Answer.
+            </summary>
+        </member>
+        <member name="P:Stacky.Answer.Id">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.Answer"/> id.
+            </summary>
+            <value>The <see cref="T:Stacky.Answer"/> id.</value>
+        </member>
+        <member name="P:Stacky.Answer.Title">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.Answer"/> title.
+            </summary>
+            <value>The <see cref="T:Stacky.Answer"/> title.</value>
+        </member>
+        <member name="P:Stacky.Answer.Body">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.Answer"/> body.
+            </summary>
+            <value>The <see cref="T:Stacky.Answer"/> body.</value>
+        </member>
+        <member name="P:Stacky.Answer.Accepted">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Stacky.Answer"/> is accepted.
+            </summary>
+            <value><c>true</c> if accepted; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Stacky.Answer.QuestionId">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.Question"/> id.
+            </summary>
+            <value>The <see cref="T:Stacky.Question"/> id.</value>
+        </member>
+        <member name="P:Stacky.Answer.CreationDate">
+            <summary>
+            Gets or sets the creation date.
+            </summary>
+            <value>The creation date.</value>
+        </member>
+        <member name="P:Stacky.Answer.LastActivityDate">
+            <summary>
+            Gets or sets the last activity date.
+            </summary>
+            <value>The last activity date.</value>
+        </member>
+        <member name="P:Stacky.Answer.LockedDate">
+            <summary>
+            Gets or sets the date this answer was locked.
+            </summary>
+        </member>
+        <member name="P:Stacky.Answer.LastEditDate">
+            <summary>
+            Gets or sets the last edit date.
+            </summary>
+            <value>The last edit date.</value>
+        </member>
+        <member name="P:Stacky.Answer.UpVoteCount">
+            <summary>
+            Gets or sets up vote count.
+            </summary>
+            <value>Up vote count.</value>
+        </member>
+        <member name="P:Stacky.Answer.DownVoteCount">
+            <summary>
+            Gets or sets down vote count.
+            </summary>
+            <value>Down vote count.</value>
+        </member>
+        <member name="P:Stacky.Answer.FavoriteCount">
+            <summary>
+            Gets or sets the favorite count.
+            </summary>
+            <value>The favorite count.</value>
+        </member>
+        <member name="P:Stacky.Answer.ViewCount">
+            <summary>
+            Gets or sets the view count.
+            </summary>
+            <value>The view count.</value>
+        </member>
+        <member name="P:Stacky.Answer.Score">
+            <summary>
+            Gets or sets the score.
+            </summary>
+            <value>The score.</value>
+        </member>
+        <member name="P:Stacky.Answer.CommunityOwned">
+            <summary>
+            Gets or sets a value indicating whether <see cref="T:Stacky.Answer"/> is community owned.
+            </summary>
+            <value><c>true</c> if community owned; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Stacky.Answer.CommentsUrl">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.Comment">Comments</see> URL for this <see cref="T:Stacky.Answer"/>.
+            </summary>
+            <value>The <see cref="T:Stacky.Comment">Comments</see> URL for this <see cref="T:Stacky.Answer"/>.</value>
+        </member>
+        <member name="P:Stacky.Answer.Owner">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.User"/> associated with this <see cref="T:Stacky.Answer"/>.
+            </summary>
+        </member>
+        <member name="P:Stacky.Answer.Comments">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.Comment">Comments</see>.
+            </summary>
+            <value>The <see cref="T:Stacky.Comment">Comments</see>.</value>
+        </member>
+        <member name="T:Stacky.QuestionSort">
+            <summary>
+            Specifies the sort order for questions.
+            </summary>
+            activity (default), votes, creation, featured, hot, week, or month
+        </member>
+        <member name="F:Stacky.QuestionSort.Activity">
+            <summary>
+            Activity.
+            </summary>
+        </member>
+        <member name="F:Stacky.QuestionSort.Creation">
+            <summary>
+            Newest.
+            </summary>
+        </member>
+        <member name="F:Stacky.QuestionSort.Featured">
+            <summary>
+            Featured.
+            </summary>
+        </member>
+        <member name="F:Stacky.QuestionSort.Hot">
+            <summary>
+            Hot.
+            </summary>
+        </member>
+        <member name="F:Stacky.QuestionSort.Week">
+            <summary>
+            Week.
+            </summary>
+        </member>
+        <member name="F:Stacky.QuestionSort.Month">
+            <summary>
+            Month.
+            </summary>
+        </member>
+        <member name="F:Stacky.QuestionSort.Votes">
+            <summary>
+            Vote count.
+            </summary>
+        </member>
+        <member name="F:Stacky.QuestionSort.Unanswered">
+            <summary>
+            Unanswered.
+            </summary>
+        </member>
+        <member name="F:Stacky.QuestionSort.UnansweredCreation">
+            <summary>
+            Newest unanswered.
+            </summary>
+        </member>
+        <member name="F:Stacky.QuestionSort.UnansweredVotes">
+            <summary>
+            Unanswered vote count.
+            </summary>
+        </member>
+        <member name="T:Stacky.PostEvent">
+            <summary>
+            Represents a post event.
+            </summary>
+        </member>
+        <member name="P:Stacky.PostEvent.Type">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.PostEventType">post type</see>.
+            </summary>
+            <value>The <see cref="T:Stacky.PostEventType">type</see>.</value>
+        </member>
+        <member name="P:Stacky.PostEvent.PostId">
+            <summary>
+            Gets or sets the post id.
+            </summary>
+            <value>The post id.</value>
+        </member>
+        <member name="P:Stacky.PostEvent.UserId">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.User"/> id.
+            </summary>
+            <value>The <see cref="T:Stacky.User"/> id.</value>
+        </member>
+        <member name="P:Stacky.PostEvent.OwnerUserId">
+            <summary>
+            Gets or sets the owner <see cref="T:Stacky.User"/> id.
+            </summary>
+            <value>The owner <see cref="T:Stacky.User"/> id.</value>
+        </member>
+        <member name="P:Stacky.PostEvent.Action">
+            <summary>
+            Gets or sets the action.
+            </summary>
+            <value>The action.</value>
+        </member>
+        <member name="P:Stacky.PostEvent.CreationDate">
+            <summary>
+            Gets or sets the creation date.
+            </summary>
+            <value>The creation date.</value>
+        </member>
+        <member name="P:Stacky.PostEvent.RevisionGuid">
+            <summary>
+            Gets or sets the revision GUID.
+            </summary>
+            <value>The revision GUID.</value>
+        </member>
+        <member name="T:Stacky.UserEventType">
+            <summary>
+            Specifies a user event type.
+            </summary>
+        </member>
+        <member name="F:Stacky.UserEventType.Comment">
+            <summary>
+            Comment.
+            </summary>
+        </member>
+        <member name="F:Stacky.UserEventType.AskOrAnswered">
+            <summary>
+            Asked or answered a question.
+            </summary>
+        </member>
+        <member name="F:Stacky.UserEventType.Badge">
+            <summary>
+            Badge awarded.
+            </summary>
+        </member>
+        <member name="F:Stacky.UserEventType.Revision">
+            <summary>
+            Revision to a post.
+            </summary>
+        </member>
+        <member name="F:Stacky.UserEventType.Accepted">
+            <summary>
+            Accepted an answer.
+            </summary>
+        </member>
+        <member name="T:Stacky.SearchSort">
+            <summary>
+            Specifies the search sort order.
+            </summary>
+        </member>
+        <member name="F:Stacky.SearchSort.Activity">
+            <summary>
+            Activity.
+            </summary>
+        </member>
+        <member name="F:Stacky.SearchSort.Views">
+            <summary>
+            View count.
+            </summary>
+        </member>
+        <member name="F:Stacky.SearchSort.Creation">
+            <summary>
+            Creation date.
+            </summary>
+        </member>
+        <member name="F:Stacky.SearchSort.Votes">
+            <summary>
+            Vote count.
+            </summary>
+        </member>
+        <member name="P:Stacky.AssociatedUser.Id">
+            <summary>
+            Gets or sets the user id.
+            </summary>
+            <value>The user id.</value>
+        </member>
+        <member name="T:Stacky.PostEventType">
+            <summary>
+            Specifies the post event type.
+            </summary>
+        </member>
+        <member name="F:Stacky.PostEventType.Question">
+            <summary>
+            Question.
+            </summary>
+        </member>
+        <member name="F:Stacky.PostEventType.Answer">
+            <summary>
+            Answer.
+            </summary>
+        </member>
+        <member name="F:Stacky.PostEventType.Comment">
+            <summary>
+            Summary.
+            </summary>
+        </member>
+        <member name="F:Stacky.PostEventType.Revision">
+            <summary>
+            Revision.
+            </summary>
+        </member>
+        <member name="F:Stacky.PostEventType.Votes">
+            <summary>
+            Votes.
+            </summary>
+        </member>
+        <member name="F:Stacky.PostEventType.State">
+            <summary>
+            State
+            </summary>
+        </member>
+        <member name="F:Stacky.PostEventType.Accepted">
+            <summary>
+            Accepted
+            </summary>
+        </member>
+        <member name="F:Stacky.PostEventType.Unaccepted">
+            <summary>
+            Unaccepted
+            </summary>
+        </member>
+        <member name="T:Stacky.ResponseError">
+            <summary>
+            Represents a response error.
+            </summary>
+        </member>
+        <member name="P:Stacky.ResponseError.Code">
+            <summary>
+            Gets or sets the response <see cref="T:Stacky.ErrorCode"/>.
+            </summary>
+            <value>The response <see cref="T:Stacky.ErrorCode"/>.</value>
+        </member>
+        <member name="P:Stacky.ResponseError.Message">
+            <summary>
+            Gets or sets the response error message.
+            </summary>
+            <value>The response error message.</value>
+        </member>
+        <member name="P:Stacky.Privilege.ShortDescription">
+            <summary>
+            The short description of the Privelege
+            </summary>
+        </member>
+        <member name="P:Stacky.Privilege.Description">
+            <summary>
+            The description of the Privelege
+            </summary>
+        </member>
+        <member name="P:Stacky.Privilege.Reputation">
+            <summary>
+            The amount of reputation that goes along with the <c ref="Reputation" />
+            </summary>
+        </member>
+        <member name="T:Stacky.UserMentionSort">
+            <summary>
+            Specifies user mention sort order.
+            </summary>
+        </member>
+        <member name="F:Stacky.UserMentionSort.Creation">
+            <summary>
+            Creation date.
+            </summary>
+        </member>
+        <member name="F:Stacky.UserMentionSort.Votes">
+            <summary>
+            Vote count.
+            </summary>
+        </member>
+        <member name="T:Stacky.PostType">
+            <summary>
+            Specifies the post type.
+            </summary>
+        </member>
+        <member name="F:Stacky.PostType.Answer">
+            <summary>
+            Answer.
+            </summary>
+        </member>
+        <member name="F:Stacky.PostType.Question">
+            <summary>
+            Question.
+            </summary>
+        </member>
+        <member name="F:Stacky.PostType.Comment">
+            <summary>
+            Comment.
+            </summary>
+        </member>
+        <member name="T:Stacky.Reputation">
+            <summary>
+            Represents a <see cref="T:Stacky.User">user's</see> reputation change.
+            </summary>
+        </member>
+        <member name="P:Stacky.Reputation.PostId">
+            <summary>
+            Gets or sets the post id.
+            </summary>
+            <value>The post id.</value>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Stacky.Reputation.PostType" -->
+        <member name="P:Stacky.Reputation.Title">
+            <summary>
+            Gets or sets the title.
+            </summary>
+            <value>The title.</value>
+        </member>
+        <member name="P:Stacky.Reputation.PositiveReputation">
+            <summary>
+            Gets or sets the positive reputation.
+            </summary>
+            <value>The positive reputation.</value>
+        </member>
+        <member name="P:Stacky.Reputation.NegativeReputation">
+            <summary>
+            Gets or sets the negative reputation.
+            </summary>
+            <value>The negative reputation.</value>
+        </member>
+        <member name="P:Stacky.Reputation.OnDate">
+            <summary>
+            Gets or sets the on date.
+            </summary>
+            <value>The on date.</value>
+        </member>
+        <member name="T:Stacky.UnixDateTimeConverter">
+            <summary>
+            Class for converting Json unix time to date time.
+            </summary>
+        </member>
+        <member name="M:Stacky.UnixDateTimeConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter"/> to write to.</param>
+            <param name="value">The <see cref="T:System.DateTime"/>.</param>
+            <param name="serializer">The calling serializer.</param>
+        </member>
+        <member name="T:Stacky.EnumHelper">
+            <summary>
+            Enum helper methods.
+            </summary>
+        </member>
+        <member name="M:Stacky.EnumHelper.GetAttribute``1(System.Enum)">
+            <summary>
+            Gets the attribute of the specified type for the provided enum value.
+            </summary>
+            <typeparam name="T">The attribute type.</typeparam>
+            <param name="value">The enum value.</param>
+            <returns>The attribute if it exists, otherwise null.</returns>
+        </member>
+        <member name="T:Stacky.DateHelper">
+            <summary>
+            Unix time helper methods.
+            </summary>
+        </member>
+        <member name="M:Stacky.DateHelper.FromUnixTime(System.Int64)">
+            <summary>
+            Converts unix time to <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="self">The <see cref="T:System.DateTime"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stacky.DateHelper.ToUnixTime(System.DateTime)">
+            <summary>
+            Converts <see cref="T:System.DateTime"/> to unix time.
+            </summary>
+            <param name="self">The unix time.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Stacky.QuestionsByUserSort">
+            <summary>
+            Specifies the sort order for questions by user.
+            </summary>
+        </member>
+        <member name="F:Stacky.QuestionsByUserSort.Activity">
+            <summary>
+            Activity.
+            </summary>
+        </member>
+        <member name="F:Stacky.QuestionsByUserSort.Views">
+            <summary>
+            View count.
+            </summary>
+        </member>
+        <member name="F:Stacky.QuestionsByUserSort.Creation">
+            <summary>
+            Creation date.
+            </summary>
+        </member>
+        <member name="F:Stacky.QuestionsByUserSort.Votes">
+            <summary>
+            Vote count.
+            </summary>
+        </member>
+        <member name="T:Stacky.UserEvent">
+            <summary>
+            Represents a user event.
+            </summary>
+        </member>
+        <member name="P:Stacky.UserEvent.Type">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.UserEventType"/>.
+            </summary>
+            <value>The <see cref="T:Stacky.UserEventType"/>.</value>
+        </member>
+        <member name="P:Stacky.UserEvent.PostId">
+            <summary>
+            Gets or sets the post id.
+            </summary>
+            <value>The post id.</value>
+        </member>
+        <member name="P:Stacky.UserEvent.CommentId">
+            <summary>
+            Gets or sets the comment id.
+            </summary>
+            <value>The comment id.</value>
+        </member>
+        <member name="P:Stacky.UserEvent.Action">
+            <summary>
+            Gets or sets the action.
+            </summary>
+            <value>The action.</value>
+        </member>
+        <member name="P:Stacky.UserEvent.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Stacky.UserEvent.Detail">
+            <summary>
+            Gets or sets the detail.
+            </summary>
+            <value>The detail.</value>
+        </member>
+        <member name="P:Stacky.UserEvent.CreationDate">
+            <summary>
+            Gets or sets the creation date.
+            </summary>
+            <value>The creation date.</value>
+        </member>
+        <member name="T:Stacky.ApiVersion">
+            <summary>
+            Represents the API version.
+            </summary>
+        </member>
+        <member name="P:Stacky.ApiVersion.Version">
+            <summary>
+            Gets or sets the version.
+            </summary>
+            <value>The version.</value>
+        </member>
+        <member name="P:Stacky.ApiVersion.Revision">
+            <summary>
+            Gets or sets the revision.
+            </summary>
+            <value>The revision.</value>
+        </member>
+        <member name="T:Stacky.Tag">
+            <summary>
+            Represents a tag.
+            </summary>
+        </member>
+        <member name="P:Stacky.Tag.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Stacky.Tag.Count">
+            <summary>
+            Gets or sets the count.
+            </summary>
+            <value>The count.</value>
+        </member>
+        <member name="P:Stacky.Tag.RestrictedTo">
+            <summary>
+            Gets or sets the restricted to.
+            </summary>
+            <value>The restricted to.</value>
+        </member>
+        <member name="P:Stacky.Tag.FulfillsRequired">
+            <summary>
+            Gets or sets a value indicating whether the tag fulfills the post requirement.
+            </summary>
+            <value><c>true</c> if the tag fulfills the post requirement; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Stacky.Tag.UserId">
+            <summary>
+            Gets or sets the user id.
+            </summary>
+            <value>The user id.</value>
+        </member>
+        <member name="T:Stacky.Revision">
+            <summary>
+            Represents a <see cref="T:Stacky.Question"/> or <see cref="T:Stacky.Answer"/> revision.
+            </summary>
+        </member>
+        <member name="P:Stacky.Revision.Title">
+            <summary>
+            Gets or sets the title.
+            </summary>
+            <value>The title.</value>
+        </member>
+        <member name="P:Stacky.Revision.LastTitle">
+            <summary>
+            Gets or sets the last title.
+            </summary>
+            <value>The last title.</value>
+        </member>
+        <member name="P:Stacky.Revision.Comment">
+            <summary>
+            Gets or sets the comment.
+            </summary>
+            <value>The comment.</value>
+        </member>
+        <member name="P:Stacky.Revision.Body">
+            <summary>
+            Gets or sets the body.
+            </summary>
+            <value>The body.</value>
+        </member>
+        <member name="P:Stacky.Revision.LastBody">
+            <summary>
+            Gets or sets the last body.
+            </summary>
+            <value>The last body.</value>
+        </member>
+        <member name="P:Stacky.Revision.Tags">
+            <summary>
+            Gets or sets the list of <see cref="T:Stacky.Tag">tags</see>.
+            </summary>
+            <value>The list of <see cref="T:Stacky.Tag">tags</see>.</value>
+        </member>
+        <member name="P:Stacky.Revision.LastTags">
+            <summary>
+            Gets or sets the last list of <see cref="T:Stacky.Tag">tags</see>.
+            </summary>
+            <value>The last list of <see cref="T:Stacky.Tag">tags</see>.</value>
+        </member>
+        <member name="P:Stacky.Revision.CreationDate">
+            <summary>
+            Gets or sets the creation date.
+            </summary>
+            <value>The creation date.</value>
+        </member>
+        <member name="P:Stacky.Revision.IsQuestion">
+            <summary>
+            Gets or sets a value indicating whether this instance is question.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is question; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Stacky.Revision.IsRollback">
+            <summary>
+            Gets or sets a value indicating whether this instance is rollback.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is rollback; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Stacky.Revision.RevisionGuid">
+            <summary>
+            Gets or sets the revision GUID.
+            </summary>
+            <value>The revision GUID.</value>
+        </member>
+        <member name="P:Stacky.Revision.RevisionNumber">
+            <summary>
+            Gets or sets the revision number.
+            </summary>
+            <value>The revision number.</value>
+        </member>
+        <member name="P:Stacky.Revision.RevisionType">
+            <summary>
+            Gets or sets the type of the revision.
+            </summary>
+            <value>The type of the revision.</value>
+        </member>
+        <member name="P:Stacky.Revision.SetCommunityWiki">
+            <summary>
+            Gets or sets a value indicating whether [set community wiki].
+            </summary>
+            <value><c>true</c> if [set community wiki]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Stacky.Revision.UserId">
+            <summary>
+            Gets or sets the user id.
+            </summary>
+            <value>The user id.</value>
+        </member>
+        <member name="T:Stacky.Badge">
+            <summary>
+            Represents a badge.
+            </summary>
+        </member>
+        <member name="P:Stacky.Badge.Id">
+            <summary>
+            Gets or sets the id.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:Stacky.Badge.Rank">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.BadgeClass"/>.
+            </summary>
+            <value>The BadgeClass.</value>
+        </member>
+        <member name="P:Stacky.Badge.Name">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.Badge"/> name.
+            </summary>
+            <value>The <see cref="T:Stacky.Badge"/> name.</value>
+        </member>
+        <member name="P:Stacky.Badge.Description">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.Badge"/> description.
+            </summary>
+            <value>The <see cref="T:Stacky.Badge"/> description.</value>
+        </member>
+        <member name="P:Stacky.Badge.AwardCount">
+            <summary>
+            Gets or sets the award count of this <see cref="T:Stacky.Badge"/>.
+            </summary>
+            <value>The award count of this <see cref="T:Stacky.Badge"/>.</value>
+        </member>
+        <member name="P:Stacky.Badge.IsTagBased">
+            <summary>
+            Gets or sets whether or not this <see cref="T:Stacky.Badge"/> is tag based or not.
+            </summary>
+        </member>
+        <member name="P:Stacky.Badge.BadgeRecipientsUrl">
+            <summary>
+            Gets or sets the url link to the badge recipients.
+            </summary>
+        </member>
+        <member name="T:Stacky.SerializationHelper">
+            <summary>
+            Serialization helper methods.
+            </summary>
+        </member>
+        <member name="M:Stacky.SerializationHelper.DeserializeXml``1(System.String)">
+            <summary>
+            Deserializes xml into an instance of T.
+            </summary>
+            <typeparam name="T">The type to be returned.</typeparam>
+            <param name="xml">The xml.</param>
+            <returns>An instance of T</returns>
+        </member>
+        <member name="M:Stacky.SerializationHelper.SerializeXml``1(``0)">
+            <summary>
+            Serializes T to xml.
+            </summary>
+            <typeparam name="T">The type to be serialized.</typeparam>
+            <param name="item">The object to be serialized.</param>
+            <returns>Xml represntation of item.</returns>
+        </member>
+        <member name="M:Stacky.SerializationHelper.DeserializeJson``1(System.String)">
+            <summary>
+            Deserializes json into an instance of T.
+            </summary>
+            <typeparam name="T">The type to be returned.</typeparam>
+            <param name="json">The json.</param>
+            <returns>An instance of T</returns>
+        </member>
+        <member name="M:Stacky.SerializationHelper.SerializeJson``1(``0)">
+            <summary>
+            Serializes T to json.
+            </summary>
+            <typeparam name="T">The type to be serialized.</typeparam>
+            <param name="item">The object to be serialized.</param>
+            <returns>Json represntation of item.</returns>
+        </member>
+        <member name="T:Stacky.Question">
+            <summary>
+            Represents a question.
+            </summary>
+        </member>
+        <member name="P:Stacky.Question.Id">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.Question"/> id.
+            </summary>
+            <value>The <see cref="T:Stacky.Question"/> id.</value>
+        </member>
+        <member name="P:Stacky.Question.Title">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.Question"/> title.
+            </summary>
+            <value>The <see cref="T:Stacky.Question"/> title.</value>
+        </member>
+        <member name="P:Stacky.Question.Body">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.Question"/> body.
+            </summary>
+            <value>The <see cref="T:Stacky.Question"/> body.</value>
+        </member>
+        <member name="P:Stacky.Question.AnswerCount">
+            <summary>
+            Gets or sets the answer count.
+            </summary>
+            <value>The answer count.</value>
+        </member>
+        <member name="P:Stacky.Question.CreationDate">
+            <summary>
+            Gets or sets the creation date.
+            </summary>
+            <value>The creation date.</value>
+        </member>
+        <member name="P:Stacky.Question.LastActivityDate">
+            <summary>
+            Gets or sets the last activity date.
+            </summary>
+            <value>The last activity date.</value>
+        </member>
+        <member name="P:Stacky.Question.LastEditDate">
+            <summary>
+            Gets or sets the last edit date.
+            </summary>
+            <value>The last edit date.</value>
+        </member>
+        <member name="P:Stacky.Question.LockedDate">
+            <summary>
+            Gets or sets the locked date.
+            </summary>
+            <value>The locked date.</value>
+        </member>
+        <member name="P:Stacky.Question.ClosedDate">
+            <summary>
+            Gets or sets the closed date.
+            </summary>
+            <value>The closed date.</value>
+        </member>
+        <member name="P:Stacky.Question.ClosedReason">
+            <summary>
+            Gets or sets the closed reason.
+            </summary>
+            <value>The closed reason.</value>
+        </member>
+        <member name="P:Stacky.Question.UpVoteCount">
+            <summary>
+            Gets or sets up vote count.
+            </summary>
+            <value>Up vote count.</value>
+        </member>
+        <member name="P:Stacky.Question.DownVoteCount">
+            <summary>
+            Gets or sets down vote count.
+            </summary>
+            <value>Down vote count.</value>
+        </member>
+        <member name="P:Stacky.Question.FavoriteCount">
+            <summary>
+            Gets or sets the favorite count.
+            </summary>
+            <value>The favorite count.</value>
+        </member>
+        <member name="P:Stacky.Question.ViewCount">
+            <summary>
+            Gets or sets the view count.
+            </summary>
+            <value>The view count.</value>
+        </member>
+        <member name="P:Stacky.Question.Score">
+            <summary>
+            Gets or sets the score.
+            </summary>
+            <value>The score.</value>
+        </member>
+        <member name="P:Stacky.Question.CommunityOwned">
+            <summary>
+            Gets or sets a value indicating whether the <see cref="T:Stacky.Question"/> is community owned.
+            </summary>
+            <value><c>true</c> if community owned; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Stacky.Question.AcceptedAnswerId">
+            <summary>
+            Gets or sets the accepted <see cref="T:Stacky.Answer"/> id.
+            </summary>
+            <value>The accepted <see cref="T:Stacky.Answer"/> id.</value>
+        </member>
+        <member name="P:Stacky.Question.BountyAmount">
+            <summary>
+            Gets or sets the bounty amount.
+            </summary>
+            <value>The bounty amount.</value>
+        </member>
+        <member name="P:Stacky.Question.TimelineUrl">
+            <summary>
+            Gets or sets the timeline URL for this <see cref="T:Stacky.Question"/>.
+            </summary>
+            <value>The timeline URL.</value>
+        </member>
+        <member name="P:Stacky.Question.CommentsUrl">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.Comment">Comments</see> URL for this <see cref="T:Stacky.Question"/>.
+            </summary>
+            <value>The <see cref="T:Stacky.Comment">Comments</see> URL for this <see cref="T:Stacky.Question"/>.</value>
+        </member>
+        <member name="P:Stacky.Question.Migrated">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.MigrationInfo"/> for this <see cref="T:Stacky.Question"/>.
+            </summary>
+        </member>
+        <member name="P:Stacky.Question.Owner">
+            <summary>
+            Gets or sets the <see cref="T:Stacky.UserInfo">owner</see>.
+            </summary>
+            <value>The <see cref="T:Stacky.UserInfo">owner</see>.</value>
+        </member>
+        <member name="P:Stacky.Question.Tags">
+            <summary>
+            Gets or sets the list of <see cref="T:Stacky.Tag">tags</see>.
+            </summary>
+            <value>The list of <see cref="T:Stacky.Tag">tags</see>.</value>
+        </member>
+        <member name="P:Stacky.Question.Answers">
+            <summary>
+            Gets or sets the list of <see cref="T:Stacky.Answer">answers</see>.
+            </summary>
+            <value>The list of <see cref="T:Stacky.Answer">answers</see>.</value>
+        </member>
+        <member name="P:Stacky.Question.Comments">
+            <summary>
+            Gets or sets the list of <see cref="T:Stacky.Comment">comments</see>.
+            </summary>
+            <value>The list of <see cref="T:Stacky.Comment">comments</see>.</value>
+        </member>
+    </members>
+</doc>
