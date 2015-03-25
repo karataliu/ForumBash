@@ -1,13 +1,14 @@
 ﻿using System.Web.Http;
 using System.Web.OData;
 
-namespace ForumBash.Service.Controllers
+namespace ForumBash.Service
 {
-    public class SOIssueSetController : ODataController
+    [EnableQuery]
+    public class SOIssuesController : ODataController
     {
         private ForumBashContext context;
 
-        public SOIssueSetController()
+        public SOIssuesController()
         {
             this.context = new ForumBashContext();
         }

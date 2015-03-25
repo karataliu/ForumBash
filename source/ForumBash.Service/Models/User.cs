@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
+using ODataOpenIssuesDashboard.Models;
 
 namespace ForumBash.Service
 {
     public class User
     {
-        
         public string Name { get; set; }
+
+        public IEnumerable<SOIssue> Issues { get; set; }
     }
 }
