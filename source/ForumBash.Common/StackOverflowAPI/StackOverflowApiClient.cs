@@ -1,14 +1,11 @@
-﻿using Newtonsoft.Json;
-using ODataOpenIssuesDashboard.Models;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using System.Web;
+using Newtonsoft.Json;
+using ODataOpenIssuesDashboard.Models;
 
 namespace ODataOpenIssuesDashboard.StackOverflowAPI
 {

@@ -60,7 +60,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PagedList">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
@@ -142,14 +142,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Issue.cs" />
-    <Compile Include="Models\ResourceList.cs" />
-    <Compile Include="Models\SOIssue.cs" />
     <Compile Include="Models\ODataOpenIssues.cs" />
-    <Compile Include="Models\StackQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StackOverflowAPI\CStylePropertyNameContractResolver.cs" />
-    <Compile Include="StackOverflowAPI\StackOverflowApiClient.cs" />
     <Compile Include="Utils\DBOperation.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -243,6 +237,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ForumBash.Common\ForumBash.Common.csproj">
+      <Project>{b31375d8-e4ac-4ad5-b769-1f44bb61839c}</Project>
+      <Name>ForumBash.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
