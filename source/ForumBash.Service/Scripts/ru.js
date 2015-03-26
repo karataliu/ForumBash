@@ -1,7 +1,17 @@
 ﻿$(function () {
     UpdateIssuesCount();
-    UpdateBoard();
+    UpdateIssues();
     $("#o5").click(OpenTop5);
+    $("#navSO").click(function() {
+        Clear();
+        $("#o5").show();
+        UpdateIssues();
+    });
+    $("#navU").click(function () {
+        Clear();
+        $("#o5").hide();
+        UpdateUsers();
+    });
 });
 
 var top5 = [];
@@ -12,11 +22,37 @@ function OpenTop5() {
     }
 }
 
+function Clear() {
+    $("#board").empty();
+}
+
+
+function UpdateUsers() {
+    $.get("/fb.svc/Users", function (response) {
+        var text = "";
+        var data = response.value;
+        for (var i = 0; i < data.length; i++) {
+            var sin =
+                "<a class=\"tile bg-darkBlue fg-white opacity\" href=\"#\"> \
+                   <div class=\"text-itemtitle\">" + data[i].Name + "</div> \
+                   <div class=\"brand bg-black opacity\"> \
+                     <span class=\"label fg-white\">" + "" + "</span> \
+                     <span class=\"badge bg-red\">" + "1" + "</span> \
+                   </div> \
+                 </a>\n";
+
+            text += sin;
+        }
+
+        $("#board").append(text);
+    });
+}
+
 function UpdateIssuesCount() {
     $("#issuesCount").load("/fb.svc/SOIssues/$count?$filter=Owner%20eq%20null");
 }
 
-function UpdateBoard() {
+function UpdateIssues() {
     $.get("/fb.svc/SOIssues?$orderby=CreationDate%20desc", function (response) {
         var text = "";
         var data = response.value;

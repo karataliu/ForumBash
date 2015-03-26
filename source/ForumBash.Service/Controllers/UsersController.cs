@@ -18,7 +18,7 @@ namespace ForumBash.Service
         public IHttpActionResult Get()
         {
             var result = this.context.SOIssues
-                .GroupBy(p => p.Owner ?? "unsigned")
+                .GroupBy(p => p.Owner ?? "None")
                 .Select(p => new User
                     {
                         Name = p.Key,
@@ -26,6 +26,24 @@ namespace ForumBash.Service
                     });
 
             return Ok(result);
+        }
+
+        public IHttpActionResult Get([FromODataUri]string key)
+        {
+            var result = this.context.SOIssues
+                .GroupBy(p => p.Owner ?? "None")
+                .SingleOrDefault(p => p.Key == key);
+
+            if (result == null)
+            {
+                return NotFound();
+            };
+
+            return Ok(new User
+                {
+                    Name = result.Key,
+                    Issues = result
+                });
         }
 
         [HttpPost]
