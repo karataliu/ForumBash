@@ -1,7 +1,16 @@
 ﻿$(function () {
     UpdateIssuesCount();
     UpdateBoard();
+    $("#o5").click(OpenTop5);
 });
+
+var top5 = [];
+
+function OpenTop5() {
+    for (var i = 0; i < top5.length; i++) {
+        window.open(top5[i], '_blank');
+    }
+}
 
 function UpdateIssuesCount() {
     $("#issuesCount").load("/fb.svc/SOIssues/$count?$filter=Owner%20eq%20null");
@@ -22,6 +31,9 @@ function UpdateBoard() {
                      <span class=\"badge bg-red\">" + data[i].AnswerNumber + "</span> \
                    </div> \
                  </a>\n";
+            if (top5.length < 5) {
+                top5.push(data[i].URL);
+            }
 
             //sin +=
             //    "<div class=\"tile half double bg-green fg-white opacity\"> \
