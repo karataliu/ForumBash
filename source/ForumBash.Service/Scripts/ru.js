@@ -49,7 +49,7 @@ function UpdateUsers() {
                    <div class=\"text-itemtitle\">" + data[i].Name + "</div> \
                    <div class=\"brand bg-black opacity\"> \
                      <span class=\"label fg-white\">" + "" + "</span> \
-                     <span class=\"badge bg-red\">" + "1" + "</span> \
+                     <span class=\"badge bg-red\">" + data[i].IssueCount + "</span> \
                    </div> \
                  </a>\n";
 

@@ -22,6 +22,7 @@ namespace ForumBash.Service
                 .Select(p => new User
                     {
                         Name = p.Key,
+                        IssueCount = p.Count(),
                         Issues = p
                     });
 
@@ -42,6 +43,7 @@ namespace ForumBash.Service
             return Ok(new User
                 {
                     Name = result.Key,
+                    IssueCount = result.Count(),
                     Issues = result
                 });
         }

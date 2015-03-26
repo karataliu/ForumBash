@@ -7,6 +7,8 @@ namespace ForumBash.Service
     {
         public string Name { get; set; }
 
+        public int IssueCount { get; set; }
+
         public IEnumerable<SOIssue> Issues { get; set; }
     }
 }
