@@ -26,7 +26,6 @@ function Clear() {
     $("#board").empty();
 }
 
-
 function UpdateUsers() {
     $.get("/fb.svc/Users", function (response) {
         var text = "";
@@ -79,7 +78,7 @@ function UpdateIssues() {
             var color = data[i].Status == "Active" ? "bg-red" : "bg-green";
 
             sin +=
-                "<div class=\"tile half " + color + " fg-white opacity\"> \
+                "<div onclick=\"UpdateStatus("+data[i].Id+","+"'Assigned'"+")\" class=\"tile half " + color + " fg-white opacity\"> \
                    <div class=\"text-itemtitle\">" + data[i].Status + "</div> \
                    <div class=\"brand bg-black opacity\"> \
                      <span class=\"fg-white\">" + owner + "</span> \
@@ -93,3 +92,24 @@ function UpdateIssues() {
     });
 }
 
+function UpdateStatus(id, status) {
+    $.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        url: '/fb.svc/SOIssues(' + id + ')',
+        type: 'PATCH',
+        data: JSON.stringify({ Status: status , Owner : "SomeOne1"}),
+        success: function (response, textStatus, jqXhr) {
+            console.log("Venue Successfully Patched!");
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // log the error to the console
+            console.log("The following error occured: " + textStatus, errorThrown);
+        },
+        complete: function () {
+            console.log("Venue Patch Ran");
+        }
+    });
+}
