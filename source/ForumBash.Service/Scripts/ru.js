@@ -6,15 +6,26 @@
         Clear();
         $("#o5").show();
         UpdateIssues();
+        current = "SO";
+        nl = "/fb.svc/SOIssues?$orderby=CreationDate%20desc";
     });
     $("#navU").click(function () {
         Clear();
         $("#o5").hide();
         UpdateUsers();
+        current = "U";
+    });
+
+    $(window).scroll(function () {
+        if (current=="SO" && $(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+            UpdateIssues();
+        }
     });
 });
 
 var top5 = [];
+var nl = "/fb.svc/SOIssues?$orderby=CreationDate%20desc";
+var current = "SO";
 
 function OpenTop5() {
     for (var i = 0; i < top5.length; i++) {
@@ -24,6 +35,8 @@ function OpenTop5() {
 
 function Clear() {
     $("#board").empty();
+    top5 = [];
+    nl = null;
 }
 
 function UpdateUsers() {
@@ -52,9 +65,15 @@ function UpdateIssuesCount() {
 }
 
 function UpdateIssues() {
-    $.get("/fb.svc/SOIssues?$orderby=CreationDate%20desc", function (response) {
+    if (nl == null) {
+        return;
+    }
+
+    $.get(nl, function (response) {
         var text = "";
         var data = response.value;
+        nl = response['@odata.nextLink'];
+
         for (var i = 0; i < data.length; i++) {
             var owner = data[i].Owner == null ? "None" : data[i].Owner;
 
@@ -69,11 +88,6 @@ function UpdateIssues() {
             if (top5.length < 5) {
                 top5.push(data[i].URL);
             }
-
-            //sin +=
-            //    "<div class=\"tile half double bg-green fg-white opacity\"> \
-            //       <div class=\"text-itemtitle\">" + owner + "</div> \
-            //     </div>";
 
             var color = data[i].Status == "Active" ? "bg-red" : "bg-green";
 

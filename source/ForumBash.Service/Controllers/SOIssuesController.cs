@@ -19,6 +19,7 @@ namespace ForumBash.Service
             this.context = new ForumBashContext();
         }
 
+        [EnableQuery(PageSize = 20)]
         public IHttpActionResult Get()
         {
             var result = this.context.SOIssues;
