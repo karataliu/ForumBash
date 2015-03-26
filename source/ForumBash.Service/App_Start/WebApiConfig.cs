@@ -13,7 +13,7 @@ namespace ForumBash.Service
         public static void Register(HttpConfiguration config)
         {
             config.EnableEnumPrefixFree(true);
-            config.MapODataServiceRoute("ForumBash", null, GetModel());
+            config.MapODataServiceRoute("ForumBash", "fb.svc", GetModel());
         }
 
         private static IEdmModel GetModel()

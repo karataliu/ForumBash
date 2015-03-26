@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Http;
 using System.Web.OData;
+using ODataOpenIssuesDashboard.Models;
 
 namespace ForumBash.Service
 {
@@ -25,6 +26,15 @@ namespace ForumBash.Service
                     });
 
             return Ok(result);
+        }
+
+        [HttpPost]
+        public IHttpActionResult Post(SOIssue account)
+        {
+            this.context.SOIssues.Add(account);
+            this.context.SaveChanges();
+
+            return Created(account);
         }
     }
 }

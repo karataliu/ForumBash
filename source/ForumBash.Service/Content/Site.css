@@ -1,0 +1,35 @@
+﻿body {
+    padding-bottom: 20px;
+    /*background-color: dimgrey;*/
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.text-itemtitle {
+    /*text-align: center;*/
+    /*line-height: 255px;*/
+    font-size: large;
+}
+
+.text-title {
+    font-size: 400%;
+}
+
+.metro .tile.long {
+  width: 75%;
+}
+
+/*.a-itemtitle {
+    font-color: white
+}*/
