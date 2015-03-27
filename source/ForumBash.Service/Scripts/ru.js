@@ -20,6 +20,13 @@ function UpdateIssueQueryUri() {
 // Entrance func
 $(function () {
     Refresh();
+    $("body").click(function (e) {
+        if (e.target == this) {
+            console.log("body click");
+            $(".popup").empty();
+        }
+    });
+
     $("#o5").click(OpenTopLinks);
     $("#navSO").click(function () {
         CurrentView = "SO"; Refresh();
@@ -141,7 +148,7 @@ function UpdateIssues() {
                    </div> \
                  </div>";
 
-            sin += "<div id=\"_qo" + data[i].Id + "\" class=\"statuspanel fg-white\"></div>";
+            sin += "<div id=\"_qo" + data[i].Id + "\" class=\"statuspanel fg-white popup\"></div>";
 
             text += sin;
         }
@@ -176,6 +183,7 @@ function UpdateStatus(id, status) {
 }
 
 function ShowMenu(id) {
+    $("#_qo" + id).empty();
     $("#_qo" + id).append(" \
                     <div onclick=UpdateStatus("+ id + ",\"Active\") id=\"status-Active\" class=\"tile half opacity status-Active\">Active</div> \
                     <div onclick=UpdateStatus(" + id + ",\"Assigned\") id=\"status-Assigned\" class=\"tile half opacity status-Assigned\">Assigned</div> \
