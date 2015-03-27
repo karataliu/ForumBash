@@ -138,6 +138,7 @@
     <Content Include="Scripts\jquery-2.1.3.min.js" />
     <Content Include="Scripts\metro-ui\jquery.ui.widget.js" />
     <Content Include="Scripts\metro-ui\metro.min.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\ru.js" />
     <Content Include="Web.config" />
   </ItemGroup>

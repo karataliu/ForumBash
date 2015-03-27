@@ -131,7 +131,7 @@ function UpdateIssues() {
                 "<a class=\"tile half long bg-darkBlue fg-white opacity\" href=\"" + data[i].URL + "\"> \
                    <div class=\"text-itemtitle\">" + data[i].Title + "</div> \
                    <div class=\"brand bg-black opacity\"> \
-                     <span class=\"label fg-white\">" + data[i].CreationDate + "</span> \
+                     <span class=\"label fg-white\">" + moment(data[i].CreationDate).fromNow() + "</span> \
                      <span class=\"badge bg-red\">" + data[i].AnswerNumber + "</span> \
                    </div> \
                  </a>\n";
