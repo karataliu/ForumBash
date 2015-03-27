@@ -1,42 +1,85 @@
-﻿$(function () {
-    UpdateIssuesCount();
-    UpdateIssues();
-    $("#o5").click(OpenTop5);
-    $("#navSO").click(function() {
-        Clear();
-        $("#o5").show();
-        UpdateIssues();
-        current = "SO";
-        nl = "/fb.svc/SOIssues?$orderby=CreationDate%20desc";
+﻿/***********************
+    ForumBash Display
+***********************/
+
+// Constans
+var IssueUriBase = "/fb.svc/SOIssues";
+
+var TopLinks = [];
+var CurrentView = "SO"; // SO USER STAT
+var StatusFilter = "All"; // All, Active, Assigned, Resolved,Closed, Irrelevant
+var IssuesQueryUri = null;
+
+function UpdateIssueQueryUri() {
+    IssuesQueryUri = IssueUriBase + "?$orderby=CreationDate%20desc";
+    if (StatusFilter != "All") {
+        IssuesQueryUri += "&$filter=Status%20eq%20'" + StatusFilter + "'";
+    }
+}
+
+// Entrance func
+$(function () {
+    Refresh();
+    $("#o5").click(OpenTopLinks);
+    $("#navSO").click(function () {
+        CurrentView = "SO"; Refresh();
     });
-    $("#navU").click(function () {
-        Clear();
-        $("#o5").hide();
-        UpdateUsers();
-        current = "U";
+    $("#navUSER").click(function () {
+        CurrentView = "USER"; Refresh();
     });
 
+    $("#refresh").click(Refresh);
+
+    $("#status-All").click(function () { StatusFilter = "All"; Refresh(); });
+    $("#status-Active").click(function () { StatusFilter = "Active"; Refresh(); });
+    $("#status-Assigned").click(function () { StatusFilter = "Assigned"; Refresh(); });
+    $("#status-Resolved").click(function () { StatusFilter = "Resolved"; Refresh(); });
+    $("#status-Closed").click(function () { StatusFilter = "Closed"; Refresh(); });
+    $("#status-Irrelevant").click(function () { StatusFilter = "Irrelevant"; Refresh(); });
+    
     $(window).scroll(function () {
-        if (current=="SO" && $(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+        if (CurrentView == "SO" && $(window).scrollTop() + $(window).height() > $(document).height() - 100) {
             UpdateIssues();
         }
     });
 });
 
-var top5 = [];
-var nl = "/fb.svc/SOIssues?$orderby=CreationDate%20desc";
-var current = "SO";
+function Refresh() {
+    switch (CurrentView) {
+        case "SO":
+            Clear();
+            $("#o5").show();
+            $(".statusfilter").show();
+            UpdateIssueQueryUri();
+            UpdateIssuesCount();
+            UpdateIssues();
+            UpdateStatusFilter();
+            break;
+        case "USER":
+            Clear();
+            $("#o5").hide();
+            $(".statusfilter").hide();
+            UpdateUsers();
+            break;
+        default:
+    }
+}
 
-function OpenTop5() {
-    for (var i = 0; i < top5.length; i++) {
-        window.open(top5[i], '_blank');
+function UpdateStatusFilter() {
+    $(".statusfilter div").removeClass("selected");
+    $("#status-" + StatusFilter).addClass("selected");
+}
+
+function OpenTopLinks() {
+    for (var i = 0; i < TopLinks.length; i++) {
+        window.open(TopLinks[i], '_blank');
     }
 }
 
 function Clear() {
     $("#board").empty();
-    top5 = [];
-    nl = null;
+    TopLinks = [];
+    IssuesQueryUri = null;
 }
 
 function UpdateUsers() {
@@ -65,14 +108,14 @@ function UpdateIssuesCount() {
 }
 
 function UpdateIssues() {
-    if (nl == null) {
+    if (IssuesQueryUri == null) {
         return;
     }
 
-    $.get(nl, function (response) {
+    $.get(IssuesQueryUri, function (response) {
         var text = "";
         var data = response.value;
-        nl = response['@odata.nextLink'];
+        IssuesQueryUri = response['@odata.nextLink'];
 
         for (var i = 0; i < data.length; i++) {
             var owner = data[i].Owner == null ? "None" : data[i].Owner;
@@ -85,14 +128,13 @@ function UpdateIssues() {
                      <span class=\"badge bg-red\">" + data[i].AnswerNumber + "</span> \
                    </div> \
                  </a>\n";
-            if (top5.length < 5) {
-                top5.push(data[i].URL);
+            if (TopLinks.length < 5) {
+                TopLinks.push(data[i].URL);
             }
 
-            var color = data[i].Status == "Active" ? "bg-red" : "bg-green";
-
             sin +=
-                "<div onclick=\"UpdateStatus("+data[i].Id+","+"'Assigned'"+")\" class=\"tile half " + color + " fg-white opacity\"> \
+                "<div onclick=\"UpdateStatus(" + data[i].Id + "," + "'Assigned'" +
+                    ")\" class=\"tile half status-" + data[i].Status + " fg-white opacity\"> \
                    <div class=\"text-itemtitle\">" + data[i].Status + "</div> \
                    <div class=\"brand bg-black opacity\"> \
                      <span class=\"fg-white\">" + owner + "</span> \
@@ -114,7 +156,7 @@ function UpdateStatus(id, status) {
         },
         url: '/fb.svc/SOIssues(' + id + ')',
         type: 'PATCH',
-        data: JSON.stringify({ Status: status , Owner : "SomeOne1"}),
+        data: JSON.stringify({ Status: status, Owner: "SomeOne1" }),
         success: function (response, textStatus, jqXhr) {
             console.log("Venue Successfully Patched!");
         },

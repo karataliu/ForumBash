@@ -20,28 +20,51 @@
             <div class="element-divider"></div>
             <a href="#" id="navSO" class="element">
                 StackOverflow
-                <span id="issuesCount" class="badge bg-red">0?</span>
+                <span id="issuesCount" class="badge bg-red text-count">0?</span>
             </a>
-            <a href="#" id="navU" class="element">Users</a>
+            <a href="#" id="navUSER" class="element">User</a>
+            <a href="#" id="navSTAT" class="element">Trend</a>
             <a href="/fb.svc/" class="element">Service</a>
             <a href="#" class="element place-right">About</a>
             <a href="#" id="o5" class="element place-right">Open Top 5 Links</a>
+            <a href="#" id="refresh"  class="element place-right">Refresh</a>
         </nav>
     </nav>
 
     <div class="container">
+        <div class="statusfilter fg-white">
+            <div id="status-All" class="tile half opacity status-All">
+                All
+            </div>
+            <div id="status-Active" class="tile half opacity status-Active">
+                Active
+            </div>
+            <div id="status-Assigned" class="tile half opacity status-Assigned">
+                Assigned
+            </div>
+            <div id="status-Resolved" class="tile half opacity status-Resolved">
+                Resolved
+            </div>
+            <div id="status-Closed" class="tile half opacity status-Closed">
+                Closed
+            </div>
+            <div id="status-Irrelevant" class="tile half opacity status-Irrelevant">
+                Irrelevant
+            </div>
+        </div>
+
         <div id="board"></div>
 
         <!--<div class="tile half long bg-green fg-white opacity">
-            <div class="text-itemtitle">How To Parse ODATA Error</div>
-            <div class="brand bg-black opacity">
-                <span class="label fg-white">-2.79</span>
-                <span class="badge bg-red">1</span>
+                <div class="text-itemtitle">How To Parse ODATA Error</div>
+                <div class="brand bg-black opacity">
+                    <span class="label fg-white">-2.79</span>
+                    <span class="badge bg-red">1</span>
+                </div>
             </div>
-        </div>
-        <div class="tile half bg-green fg-white opacity">
-            <div class="text-itemtitle">How To Parse ODATA Error</div>
-        </div>-->
+            <div class="tile half bg-green fg-white opacity">
+                <div class="text-itemtitle">How To Parse ODATA Error</div>
+            </div>-->
     </div>
 </body>
 </html>

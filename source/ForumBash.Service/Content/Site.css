@@ -1,6 +1,6 @@
 ﻿body {
     padding-bottom: 20px;
-    /*background-color: dimgrey;*/
+    background-color: dimgrey;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -16,20 +16,50 @@ textarea {
     max-width: 280px;
 }
 
+.text-count {
+    /*text-align: center;*/
+    /*line-height: 255px;*/
+    font-size: small;
+}
+
 .text-itemtitle {
     /*text-align: center;*/
     /*line-height: 255px;*/
     font-size: large;
 }
 
-.text-title {
-    font-size: 400%;
-}
-
 .metro .tile.long {
-  width: 75%;
+    width: 75%;
 }
 
-/*.a-itemtitle {
-    font-color: white
-}*/
+.statusfilter .tile.half {
+    height: 25px;
+}
+
+.statusfilter {
+    display: inline-block;
+}
+
+.status-All {
+    background-color: blue !important;
+}
+
+.status-Active {
+    background-color: #e51400 !important;
+}
+
+.status-Assigned {
+    background-color: #f0a30a !important;
+}
+
+.status-Resolved {
+    background-color: #128023 !important;
+}
+
+.status-Closed {
+    background-color: brown !important;
+}
+
+.status-Irrelevant {
+    background-color: gray !important;
+}
