@@ -36,7 +36,7 @@ $(function () {
     $("#status-Resolved").click(function () { StatusFilter = "Resolved"; Refresh(); });
     $("#status-Closed").click(function () { StatusFilter = "Closed"; Refresh(); });
     $("#status-Irrelevant").click(function () { StatusFilter = "Irrelevant"; Refresh(); });
-    
+
     $(window).scroll(function () {
         if (CurrentView == "SO" && $(window).scrollTop() + $(window).height() > $(document).height() - 100) {
             UpdateIssues();
@@ -66,7 +66,7 @@ function Refresh() {
 }
 
 function UpdateStatusFilter() {
-    $(".statusfilter div").removeClass("selected");
+    $("#statusfilter div").removeClass("selected");
     $("#status-" + StatusFilter).addClass("selected");
 }
 
@@ -133,13 +133,15 @@ function UpdateIssues() {
             }
 
             sin +=
-                "<div onclick=\"UpdateStatus(" + data[i].Id + "," + "'Assigned'" +
-                    ")\" class=\"tile half status-" + data[i].Status + " fg-white opacity\"> \
+                "<div onclick=\"ShowMenu(" + data[i].Id + ")\" class=\"tile half status-" +
+                    data[i].Status + " fg-white opacity\"> \
                    <div class=\"text-itemtitle\">" + data[i].Status + "</div> \
                    <div class=\"brand bg-black opacity\"> \
                      <span class=\"fg-white\">" + owner + "</span> \
                    </div> \
                  </div>";
+
+            sin += "<div id=\"_qo" + data[i].Id + "\" class=\"statuspanel fg-white\"></div>";
 
             text += sin;
         }
@@ -149,6 +151,8 @@ function UpdateIssues() {
 }
 
 function UpdateStatus(id, status) {
+    var owner = $("#owner").val();
+
     $.ajax({
         headers: {
             'Accept': 'application/json',
@@ -156,7 +160,7 @@ function UpdateStatus(id, status) {
         },
         url: '/fb.svc/SOIssues(' + id + ')',
         type: 'PATCH',
-        data: JSON.stringify({ Status: status, Owner: "SomeOne1" }),
+        data: JSON.stringify({ Status: status, Owner: owner }),
         success: function (response, textStatus, jqXhr) {
             console.log("Venue Successfully Patched!");
         },
@@ -166,6 +170,17 @@ function UpdateStatus(id, status) {
         },
         complete: function () {
             console.log("Venue Patch Ran");
+            Refresh();
         }
     });
+}
+
+function ShowMenu(id) {
+    $("#_qo" + id).append(" \
+                    <div onclick=UpdateStatus("+ id + ",\"Active\") id=\"status-Active\" class=\"tile half opacity status-Active\">Active</div> \
+                    <div onclick=UpdateStatus(" + id + ",\"Assigned\") id=\"status-Assigned\" class=\"tile half opacity status-Assigned\">Assigned</div> \
+                    <div onclick=UpdateStatus(" + id + ",\"Resolved\") id=\"status-Resolved\" class=\"tile half opacity status-Resolved\">Resolved</div> \
+                    <div onclick=UpdateStatus(" + id + ",\"Closed\") id=\"status-Closed\" class=\"tile half opacity status-Closed\">Closed</div> \
+                    <div onclick=UpdateStatus(" + id + ",\"Irrelevant\") id=\"status-Irrelevant\" class=\"tile half opacity status-Irrelevant\">Irrelevant</div> \
+                    <input id=\"owner\" type=\"text\" name=\"fname\">");
 }

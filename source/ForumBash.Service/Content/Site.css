@@ -29,14 +29,14 @@ textarea {
 }
 
 .metro .tile.long {
-    width: 75%;
+    width: 90%;
 }
 
-.statusfilter .tile.half {
+.statuspanel .tile.half {
     height: 25px;
 }
 
-.statusfilter {
+.statuspanel {
     display: inline-block;
 }
 
