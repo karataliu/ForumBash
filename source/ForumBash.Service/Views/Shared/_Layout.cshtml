@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model ForumBash.Service.BashModel
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -14,36 +16,34 @@
     <script src="/Scripts/moment.min.js"></script>
     <script src="/Scripts/ru.js"></script>
 </head>
-<body class="metro bg-gray">
-    <nav class="navigation-bar dark opacity">
-        <nav class="navigation-bar-content">
-            <a class="element" href="/">ForumBash</a>
-            <div class="element-divider"></div>
-            <a href="#" id="navSO" class="element">
-                StackOverflow
-                <span id="issuesCount" class="badge bg-red text-count">0?</span>
-            </a>
-            <a href="#" id="navUSER" class="element">User</a>
-            <a href="#" id="navSTAT" class="element">Trend</a>
-            <a href="/fb.svc/" class="element">Service</a>
-            <a href="#" class="element place-right">About</a>
-            <a href="#" id="o5" class="element place-right">Open Top 5 Links</a>
-            <a href="#" id="refresh" class="element place-right">Refresh</a>
-        </nav>
-    </nav>
+    <body class="metro bg-gray">
+        
+        @Html.Hidden("CurrentViewA", @Model.CurrentView)
 
-    <div class="container">
-        <div id="statusfilter" class="statuspanel fg-white">
-            <div id="status-All" class="tile half opacity status-All">All</div>
-            <div id="status-Active" class="tile half opacity status-Active">Active</div>
-            <div id="status-Assigned" class="tile half opacity status-Assigned">Assigned</div>
-            <div id="status-Resolved" class="tile half opacity status-Resolved">Resolved</div>
-            <div id="status-Closed" class="tile half opacity status-Closed">Closed</div>
-            <div id="status-Irrelevant" class="tile half opacity status-Irrelevant">Irrelevant</div>
+        <nav class="navigation-bar dark opacity">
+            <nav class="navigation-bar-content">
+                <a class="element" href="#">ForumBash</a>
+                <div class="element-divider"></div>
+                <a href="@Url.Action("Index", "Home")" class="element">
+                    StackOverflow
+                    <span id="issuesCount" class="badge bg-red text-count">0?</span>
+                </a>
+                @Html.ActionLink("User", "User", "Home", new { area = "" }, new { @class = "element" })
+                <a href="#" id="navSTAT" class="element">Trend</a>
+                <a href="/fb.svc/" class="element">Service</a>
+                <a href="#" class="element place-right">About</a>
+                <a href="#" id="o5" class="element place-right">Open Top 5 Links</a>
+                <a href="#" id="refresh" class="element place-right">Refresh</a>
+            </nav>
+        </nav>
+
+        <div class="container">
+            <div>
+                @RenderBody()
+            </div>
+            <div id="board">
+            
+            </div>
         </div>
-        <div id="board">
-            @RenderBody()
-        </div>
-    </div>
-</body>
+    </body>
 </html>

@@ -7,7 +7,13 @@ namespace ForumBash.Service
         public ActionResult Index()
         {
             ViewBag.Title = "ForumBash - Dashboard";
+            var model = new BashModelHome { CurrentView = "srt111", Status = "Nrt"};
+            return View(model);
+        }
 
+        public new ActionResult User()
+        {
+            ViewBag.Title = "ForumBash - User";
             return View();
         }
     }
