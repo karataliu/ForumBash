@@ -56,7 +56,7 @@ function Refresh() {
         case "SO":
             Clear();
             $("#o5").show();
-            $(".statusfilter").show();
+            $("#statusfilter").show();
             UpdateIssueQueryUri();
             UpdateIssuesCount();
             UpdateIssues();
@@ -65,7 +65,7 @@ function Refresh() {
         case "USER":
             Clear();
             $("#o5").hide();
-            $(".statusfilter").hide();
+            $("#statusfilter").hide();
             UpdateUsers();
             break;
         default:
