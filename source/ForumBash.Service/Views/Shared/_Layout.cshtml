@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>ForumBash - Dashboard</title>
+    <title>@ViewBag.Title</title>
     <link href="/Content/metro-ui/css/metro-bootstrap.css" rel="stylesheet" />
     <link href="/Content/metro-ui/css/metro-bootstrap-responsive.css" rel="stylesheet" />
     <link href="/Content/metro-ui/css/iconFont.min.css" rel="stylesheet" />
@@ -28,7 +28,7 @@
             <a href="/fb.svc/" class="element">Service</a>
             <a href="#" class="element place-right">About</a>
             <a href="#" id="o5" class="element place-right">Open Top 5 Links</a>
-            <a href="#" id="refresh"  class="element place-right">Refresh</a>
+            <a href="#" id="refresh" class="element place-right">Refresh</a>
         </nav>
     </nav>
 
@@ -41,19 +41,9 @@
             <div id="status-Closed" class="tile half opacity status-Closed">Closed</div>
             <div id="status-Irrelevant" class="tile half opacity status-Irrelevant">Irrelevant</div>
         </div>
-
-        <div id="board"></div>
-
-        <!--<div class="tile half long bg-green fg-white opacity">
-                <div class="text-itemtitle">How To Parse ODATA Error</div>
-                <div class="brand bg-black opacity">
-                    <span class="label fg-white">-2.79</span>
-                    <span class="badge bg-red">1</span>
-                </div>
-            </div>
-            <div class="tile half bg-green fg-white opacity">
-                <div class="text-itemtitle">How To Parse ODATA Error</div>
-            </div>-->
+        <div id="board">
+            @RenderBody()
+        </div>
     </div>
 </body>
 </html>
